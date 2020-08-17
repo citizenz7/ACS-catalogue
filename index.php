@@ -4,9 +4,10 @@ $pagetitle = 'Bienvenue sur le site de catalogue de musique !';
 include_once 'header.php';
 ?>
 
-<?php include_once 'sidebar.php'; ?>
+
 
 <!-- 5 derniers articles -->
+<div class="container pt-5">
 <table class="table">
   <thead>
     <tr>
@@ -23,7 +24,7 @@ include_once 'header.php';
     while($row = $stmt->fetch()) {
 ?>
     <tr>
-      <th scope="row"><a href="artiste.php?id=<?php echo html($row['id']); ?>"><?php echo html($row['nom']); ?></a></th>
+      <td><a href="artiste.php?id=<?php echo html($row['id']); ?>"><?php echo html($row['nom']); ?></a></td>
       <td><?php echo html($row['genre']); ?></td>
       <td><?php echo html($row['pays_origine']); ?></td>
       <td><a href="<?php echo html($row['site_web']); ?>">Site web</a></td>
@@ -37,4 +38,5 @@ include_once 'header.php';
   ?>
 </tbody>
 </table>
+</div>
 <?php include "footer.php" ?>

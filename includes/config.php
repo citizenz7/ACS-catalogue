@@ -12,7 +12,7 @@ require_once 'functions.php';
 //-----------------------------------------------------
 //Paramètres du site
 //-----------------------------------------------------
-$SITENAME = 'Le super catalogue de musique de Yacine, Oswald et Olivier';
+$SITENAME = 'ACS Groove';
 $SITENAMELONG = 'monsupersitedemusique.fr';
 $SITESLOGAN = 'La musique, c\'est magique !';
 $SITEDESCRIPTION = 'Catalogue de musique...';
