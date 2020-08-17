@@ -1,5 +1,4 @@
 <?php
-include_once 'config.php';
 $pagetitle = 'Bienvenue sur '.SITENAMELONG.' !';
 include_once 'header.php';
 ?>
