@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 17 août 2020 à 07:53
+-- Généré le :  lun. 17 août 2020 à 11:54
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -42,7 +42,16 @@ CREATE TABLE IF NOT EXISTS `artiste` (
   `image` varchar(255) DEFAULT NULL,
   `youtube` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `artiste`
+--
+
+INSERT INTO `artiste` (`id`, `nom`, `genre`, `pays_origine`, `biographie`, `discographie`, `active`, `label`, `site_web`, `image`, `youtube`) VALUES
+(1, 'The ACS', 'chanson francaise', 'france', 'acs promo 41', 'The ACS', 'oui', 'auto production', 'https://promo-41.codeur.online/', NULL, NULL),
+(2, 'The pas ACS', 'pas chanson francaise', 'france', 'pas acs', '', '', '', '', NULL, NULL),
+(3, 'The pas ACS', 'pas chanson francaise', 'france', 'pas acs', '', '', '', '', NULL, NULL);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
