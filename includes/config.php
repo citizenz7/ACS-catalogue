@@ -12,13 +12,11 @@ require_once 'functions.php';
 //-----------------------------------------------------
 //Paramètres du site
 //-----------------------------------------------------
-/*
-define('SITENAME','catalogue');
-define('SITENAMELONG','xxxxxxxxxx.fr');
-define('SITESLOGAN','Catalogue');
-define('SITEDESCRIPTION','Catalogue de musique...');
-define('SITEKEYWORDS','musique,acs,partage,échange,licence,license,medias,libre,free,opensource,gnu,téléchargement,download,upload,php,mysql,picture,video,mp3,mkv,avi,mpeg,gpl,creativecommons,cc,mit,apache,cecill,artlibre');
-*/
+$SITENAME = 'Le super catalogue de musique de Yacine, Oswald et Olivier';
+$SITENAMELONG = 'monsupersitedemusique.fr';
+$SITESLOGAN = 'La musique, c\'est magique !';
+$SITEDESCRIPTION = 'Catalogue de musique...';
+$SITEKEYWORD = 'musique,acs,catalogue,partage,échange,licence,license,medias,libre,free,opensource,gnu,téléchargement,download,upload,php,mysql,picture,video,mp3,mkv,avi,mpeg,gpl,creativecommons,cc,mit,apache,cecill,artlibre';
 
 //-----------------------------------------------------
 //MAIL
@@ -28,15 +26,16 @@ define('SITEMAIL','contact@example.com');
 define('SITEMAILPASSWORD','xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
 define('SMTPHOST','mail.example.com');
 define('SMTPPORT','587');
-
 define('SITEOWNORNAME','John Doe');
 define('SITEAUTOR','jdoe777');
 define('SITEOWNORADDRESS','xxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
-define('SITEVERSION','1.0.0');
-define('SITEDATE','17/08/20');
-define('COPYDATE','2020');
-define('CHARSET','UTF-8');
 */
+
+$SITEAUTHORS = 'citizenz7, AuseQ, ya58';
+$SITEVERSIONn = '1.0.0';
+$SITEDATE = '17/08/20';
+$COPYDATE = '2020';
+$CHARSET = 'UTF-8';
 
 //-----------------------------------------------------
 //Website Settings

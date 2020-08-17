@@ -1,5 +1,6 @@
 <?php
-$pagetitle = 'Bienvenue sur le site !';
+include_once './includes/config.php';
+$pagetitle = 'Bienvenue sur le site de catalogue de musique !';
 include_once 'header.php';
 ?>
 
