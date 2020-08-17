@@ -1,7 +1,7 @@
 <?php
 define('DBHOST','localhost');
 define('DBUSER','catalogue');
-define('DBPASS','ujdx645a');
+define('DBPASS','catalogue');
 define('DBNAME','catalogue');
 
 try {

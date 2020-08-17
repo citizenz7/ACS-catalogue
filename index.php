@@ -1,5 +1,5 @@
 <?php
-$pagetitle = 'Bienvenue sur '.SITENAMELONG.' !';
+$pagetitle = 'Bienvenue sur le site !';
 include_once 'header.php';
 ?>
 
@@ -8,7 +8,7 @@ include_once 'header.php';
 <!-- 5 derniers articles -->
 <?php
   try {
-		$stmt = $db->query('SELECT * FROM artiste ORDER BY DESC LIMIT 5');
+		$stmt = $db->query('SELECT * FROM artiste ORDER BY id DESC LIMIT 5');
     while($row = $stmt->fetch()) {
 ?>
 
