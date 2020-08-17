@@ -6,33 +6,34 @@ include_once 'header.php';
 <?php include_once 'sidebar.php'; ?>
 
 <!-- 5 derniers articles -->
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Artiste</th>
+      <th scope="col">Genre</th>
+      <th scope="col">Pays d'origine</th>
+      <th scope="col">Lien</th>
+    </tr>
+  </thead>
+  <tbody>
 <?php
   try {
 		$stmt = $db->query('SELECT * FROM artiste ORDER BY id DESC LIMIT 5');
     while($row = $stmt->fetch()) {
 ?>
-
-  <?php
-    echo html($row['nom']) . '<br>';
-    echo html($row['genre']) . '<br>';
-    echo html($row['pays_origine']) . '<br>';
-    echo html($row['biographie']) . '<br>';
-    echo html($row['discographie']) . '<br>';
-    echo html($row['active']) . '<br>';
-    echo html($row['label']) . '<br>';
-    echo html($row['site_web']) . '<br>';
-    echo html($row['image']) . '<br>';
-    echo html($row['youtube']);
-  ?>
-
+    <tr>
+      <th scope="row"><a href="artiste.php?id=<?php echo html($row['id']); ?>"><?php echo html($row['nom']); ?></a></th>
+      <td><?php echo html($row['genre']); ?></td>
+      <td><?php echo html($row['pays_origine']); ?></td>
+      <td><a href="<?php echo html($row['site_web']); ?>">Site web</a></td>
+    </tr>
   <?php
     } //while
-
   } // try
-
   catch(PDOException $e) {
     echo $e->getMessage();
   }
   ?>
-
+</tbody>
+</table>
 <?php include "footer.php" ?>
