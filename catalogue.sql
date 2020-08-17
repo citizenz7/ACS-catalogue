@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 17 août 2020 à 07:43
+-- Généré le :  lun. 17 août 2020 à 07:53
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -40,6 +40,7 @@ CREATE TABLE IF NOT EXISTS `artiste` (
   `label` varchar(255) NOT NULL,
   `site_web` varchar(255) NOT NULL,
   `image` varchar(255) DEFAULT NULL,
+  `youtube` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 COMMIT;
