@@ -1,4 +1,7 @@
-<?php include_once "../includes/config.php"; ?>
+<?php
+include_once "../includes/config.php";
+include_once 'header.php'; 
+?>
 
 <?php
 
