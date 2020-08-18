@@ -7,7 +7,6 @@ session_start();
 //SQL
 //-----------------------------------------------------
 require_once 'sql.php';
-require_once 'functions.php';
 
 //-----------------------------------------------------
 //Paramètres du site
@@ -60,4 +59,37 @@ $WIDTH_MAX_AVATAR = 200; //Largeur max de l'image en pixels
 $HEIGHT_MAX_AVATAR = 200; //Hauteur max de l'image en pixels
 $EXTENSIONS_VALIDES = array( 'jpg' , 'png' ); //extensions d'images valides
 //$REP_IMAGES_AVATARS = '/var/www/'.SITENAMELONG.'/web/images/avatars/'; //Répertoires des images avatar des membres
+
+//-----------------------------------------------------
+//FUNCTIONS
+//-----------------------------------------------------
+//load classes as needed
+function my_autoloader($class) {
+
+   $class = strtolower($class);
+
+   //if call from within assets adjust the path
+   $classpath = 'classes/class.'.$class . '.php';
+   if ( file_exists($classpath)) {
+      require_once $classpath;
+   }
+
+   //if call from within admin adjust the path
+   $classpath = '../classes/class.'.$class . '.php';
+   if ( file_exists($classpath)) {
+      require_once $classpath;
+   }
+
+   //if call from within admin adjust the path
+   $classpath = '../../classes/class.'.$class . '.php';
+   if ( file_exists($classpath)) {
+      require_once $classpath;
+   }
+}
+
+spl_autoload_register('my_autoloader');
+
+$user = new User($db);
+
+require_once 'functions.php';
 ?>

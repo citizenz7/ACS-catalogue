@@ -12,8 +12,8 @@ try {
     echo '<div class="border rounded px-3">';
       echo '<p class="text-justify display-4 font-weight-bold">' . html($row['nom']) . '</p>';
 
-      echo '<p class="text-justify text-muted">Genre : ' . html($row['genre']) . '<br>';
-      echo 'Pays d\'origine : ' . html($row['pays_origine']) . '</p>';
+      echo '<p class="text-justify text-muted"><i class="fas fa-music"></i> Genre(s) : ' . html($row['genre']) . '<br>';
+      echo '<i class="fas fa-flag"></i> Pays d\'origine : ' . html($row['pays_origine']) . '</p>';
 
       echo '<p class="text-justify"><img class="img-fluid float-left" style="max-height: 275px; margin-right: 10px;" src="./img/' . html($row['image']) . '" alt="' . html($row['nom']) . '">' . html($row['presentation']) . '</p>';
 
@@ -24,10 +24,10 @@ try {
 
     echo '<div class="row pt-3 px-3">';
       echo '<div class="col-sm-12 text-justify text-center alert alert-primary" role="alert">';
-        echo html($row['active']) . ' | ';
-        echo html($row['label']) . ' | ';
-        echo '<a href="' . html($row['site_web']) . '">Site web</a> | ';
-        echo '<a href="' . html($row['youtube']) . '">Youtube</a>';
+        echo '<i class="fas fa-table"></i> Années d\'activité : ' . html($row['active']) . ' | ';
+        echo '<i class="fas fa-tag"></i> Label : ' . html($row['label']) . ' | ';
+        echo '<i class="fas fa-link"></i> <a href="' . html($row['site_web']) . '">Site web</a> | ';
+        echo '<i class="fab fa-youtube"></i> <a href="' . html($row['youtube']) . '">Youtube</a>';
       echo '</div>';
     echo '</div>';
   } //while
