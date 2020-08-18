@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+=======
+<?php
+include_once "../includes/config.php";
+include_once 'header.php'; 
+?>
+
+>>>>>>> 159664fc73ace34f302292ee792a6b7989881217
 <?php
 include_once '../includes/config.php';
 require_once 'header.php';
