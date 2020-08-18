@@ -1,11 +1,13 @@
 <?php
 include_once './includes/config.php';
+$id = $_GET['id'];
+
+
+$pagetitle = 'Artiste : ';
 include_once 'header.php';
 ?>
 
 <?php
-$id = $_GET['id'];
-
 try {
   $stmt = $db->query("SELECT * FROM artiste WHERE id=$id");
   while($row = $stmt->fetch()) {
