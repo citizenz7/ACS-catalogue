@@ -16,25 +16,19 @@ $SITENAMELONG = 'monsupersitedemusique.fr';
 $SITESLOGAN = 'La musique, c\'est magique !';
 $SITEDESCRIPTION = 'Catalogue de musique...';
 $SITEKEYWORD = 'musique,acs,catalogue,partage,échange,licence,license,medias,libre,free,opensource,gnu,téléchargement,download,upload,php,mysql,picture,video,mp3,mkv,avi,mpeg,gpl,creativecommons,cc,mit,apache,cecill,artlibre';
+$SITEAUTHORS = 'citizenz7, AuseQ, ya58';
+$SITEVERSION = '1.0.0';
+$SITEDATE = '17/08/20';
+$COPYDATE = '2020';
+$CHARSET = 'UTF-8';
 
 //-----------------------------------------------------
 //MAIL
 //-----------------------------------------------------
-/*
-define('SITEMAIL','contact@example.com');
-define('SITEMAILPASSWORD','xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
-define('SMTPHOST','mail.example.com');
-define('SMTPPORT','587');
-define('SITEOWNORNAME','John Doe');
-define('SITEAUTOR','jdoe777');
-define('SITEOWNORADDRESS','xxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
-*/
-
-$SITEAUTHORS = 'citizenz7, AuseQ, ya58';
-$SITEVERSIONn = '1.0.0';
-$SITEDATE = '17/08/20';
-$COPYDATE = '2020';
-$CHARSET = 'UTF-8';
+$SITEMAIL = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+$SITEMAILPASSWORD = 'xxxxxxxxxxxxxxxxxxxxxxxxxx';
+$SMTPHOST = 'xxxxxxxxxxxxxxxxxxx';
+$SMTPPORT = 'xxxxx';
 
 //-----------------------------------------------------
 //Website Settings

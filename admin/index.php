@@ -57,7 +57,7 @@ include_once 'header.php';
             <table class="table table-responsive-sm">
               <tr>
                 <td><span id="projets" class="lead font-weight-bold">Artistes</span></td>
-                <td class="text-right"><a href="add-projet.php" class="mx-auto"><button type="button" class="btn btn-success btn-sm">Ajouter un artiste/groupe</button></a></td>
+                <td class="text-right"><a href="add.php" class="mx-auto"><button type="button" class="btn btn-success btn-sm">Ajouter un artiste/groupe</button></a></td>
               </tr>
             </table>
 
@@ -92,7 +92,7 @@ include_once 'header.php';
                   ?>
                   <td class="text-center">
                     <a class="btn btn-primary btn-sm tinytext" role="button" aria-pressed="true" title="Editer la fiche" href="edit.php?id=<?php echo $row['id'];?>">Editer</a> |
-                    <a class="btn btn-danger btn-sm tinytext" role="button" aria-pressed="true" title="Supprimer la fiche" href="javascript:delprojet('<?php echo $row['id'];?>','<?php echo $row['nom'];?>')">Suppr.</a>
+                    <a class="btn btn-danger btn-sm tinytext" role="button" aria-pressed="true" title="Supprimer la fiche" href="javascript:delartiste('<?php echo $row['id'];?>','<?php echo $row['nom'];?>')">Suppr.</a>
                   </td>
                   <?php
                   echo '</tr>';
@@ -116,7 +116,7 @@ include_once 'header.php';
               exit;
             }
 
-            if(isset($_GET['actionP']) && $_GET['actionP'] == "deleted"){
+            if(isset($_GET['action']) && $_GET['action'] == "deleted"){
               echo '
               <div class="alert alert-info alert-dismissible fade show text-center font-weight-bold mt-4" role="alert">
                 Fiche supprimée !

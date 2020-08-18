@@ -1,6 +1,6 @@
 <?php
 include_once './includes/config.php';
-$pagetitle = 'Bienvenue sur le site de catalogue de musique !';
+$pagetitle = 'Bienvenue sur le site de catalogue de musique de l\'ACS Nevers !';
 include_once 'header.php';
 ?>
 
@@ -72,7 +72,7 @@ Vous trouverez ci-dessous les archives classées par genre musical
      <?php
      $stmt = $db->query("SELECT genre FROM artiste GROUP BY genre ORDER BY genre DESC");
      while($row = $stmt->fetch()){
-       echo "<option value='archives.php?genre=" . html($row['genre']) . "'>" . html($row['genre']) . "</option>";
+       echo "<option value='archives2.php?genre=" . html($row['genre']) . "'>" . html($row['genre']) . "</option>";
      }
      ?>
 </select>
