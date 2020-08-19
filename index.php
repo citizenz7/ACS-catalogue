@@ -5,23 +5,11 @@ include_once 'header.php';
 ?>
 
 <!-- 5 derniers articles -->
-<div class="container pt-3">
-  <div class="row">
-  <div class="table-responsive">
-    <table class="table table-sm table-hover">
-      <thead class="thead-dark">
-        <tr>
-          <th scope="col">Artiste</th>
-          <th scope="col">Genre</th>
-          <th scope="col">Pays d'origine</th>
-          <th scope="col">Lien</th>
-        </tr>
-      </thead>
-      <tbody>
+<div class="row">
         <?php
         try {
             //pagination
-            $pages = new Paginator('5','art');
+            $pages = new Paginator('6','art');
 
             //on collecte tous les enregistrements de la fonction
             $stmt = $db->query('SELECT id FROM artiste');
@@ -31,12 +19,32 @@ include_once 'header.php';
 		        $stmt = $db->query('SELECT * FROM artiste ORDER BY id DESC ' . $pages->get_limit());
             while($row = $stmt->fetch()) {
               ?>
-              <tr>
-                <td><a class="lead font-weight-bold" href="artiste.php?id=<?php echo html($row['id']); ?>"><?php echo html($row['nom']); ?></a></td>
-                <td><?php echo html($row['genre']); ?></td>
-                <td><?php echo html($row['pays_origine']); ?></td>
-                <td><a href="<?php echo html($row['site_web']); ?>">Site web</a></td>
-              </tr>
+              <div class="col-md-4">
+    <hr>
+    <div class="profile-card-6"><img src="./img/artistes/<?php echo $row['image']; ?>" class="img img-fluid">
+        <div class="profile-name"><?php echo $row['nom']; ?></div>
+        <div class="profile-position"><?php echo $row['genre']; ?></div>
+        <div class="profile-overview">
+            <div class="profile-overview">
+                <div class="row text-card">
+                    <div class="col-xs-4">
+                      <?php echo $row['pays_origine']; ?>
+                    </div>
+                    <div class="col-xs-4">
+                      <a href="<?php echo $row['youtube'] ?>">
+                      <img src="./img/icons/youtube.png" alt="youtube">
+                      </a>
+                    </div>
+                    <div class="col-xs-4">
+                      <a href="<?php echo $row['site_web'] ?>">
+                      <img src="./img/icons/www.png" alt="site web">
+                      </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
               <?php
             } //while
           } // try
@@ -44,11 +52,7 @@ include_once 'header.php';
             echo $e->getMessage();
           }
           ?>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
+</div>
   <!-- Pagination -->
   <div class="row justify-content-center border mb-3">
     <div class="mx-auto py-2">
