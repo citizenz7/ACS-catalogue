@@ -125,9 +125,9 @@ class Paginator{
 		{
 		    $pagination .= "<div class='pagination'>";
 		if ($this->_page > 1)
-		    $pagination.= "<a href='".$path."$this->_instance=$prev"."$ext'>« previous</a>";
+		    $pagination.= "<a href='".$path."$this->_instance=$prev"."$ext'>« précédent</a>";
 		else
-		    $pagination.= "<span class='disabled'>« previous</span>";
+		    $pagination.= "<span class='disabled'>« précédent</span>";
 
 		if ($lastpage < 7 + ($adjacents * 2))
 		{
@@ -186,9 +186,9 @@ class Paginator{
 		}
 
 		if ($this->_page < $counter - 1)
-		    $pagination.= "<a href='".$path."$this->_instance=$next"."$ext'>next »</a>";
+		    $pagination.= "<a href='".$path."$this->_instance=$next"."$ext'>suivant »</a>";
 		else
-		    $pagination.= "<span class='disabled'>next »</span>";
+		    $pagination.= "<span class='disabled'>suivant »</span>";
 		    $pagination.= "</div>\n";
 		}
 

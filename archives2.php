@@ -1,6 +1,6 @@
 <?php
 include_once './includes/config.php';
-$pagetitle = 'Archives par genre';
+$pagetitle = 'Archives par genre : ' . $_GET['genre'];
 include_once 'header.php';
 ?>
 

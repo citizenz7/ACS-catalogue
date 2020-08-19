@@ -1,6 +1,5 @@
 <?php
-include_once './includes/config.php';
-$pagetitle = 'Archives';
+$pagetitle = 'Archives par date : ' . $_GET['month'] . '/' . $_GET['year'];
 include_once 'header.php';
 ?>
 

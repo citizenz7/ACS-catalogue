@@ -2,8 +2,17 @@
 include_once './includes/config.php';
 $id = $_GET['id'];
 
+try {
 
-$pagetitle = 'Artiste : ';
+  $stmt = $db->prepare('SELECT nom FROM artiste WHERE id = :id') ;
+  $stmt->execute(array(':id' => $id));
+  $row = $stmt->fetch();
+
+} catch(PDOException $e) {
+    echo $e->getMessage();
+}
+
+$pagetitle = 'Artiste : ' . $row['nom'];
 include_once 'header.php';
 ?>
 
