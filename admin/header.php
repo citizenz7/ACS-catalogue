@@ -49,6 +49,16 @@
       }
     }
   </script>
+
+  <!-- Suppression de l'image de l'artiste/groupe -->
+  <script language="JavaScript" type="text/javascript">
+  function delimage(id, title) {
+    if (confirm("Etes-vous certain de vouloir supprimer l'image pour '" + title + "'")) {
+      window.location.href = 'edit.php?delimage=' + id;
+    }
+  }
+  </script>
+
   </head>
   <body>
 <?php //include_once 'sidebar.php'; ?>

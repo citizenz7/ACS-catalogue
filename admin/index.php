@@ -42,7 +42,7 @@ include_once 'header.php';
 	  <?php
 	  if(isset($_GET['action']) && $_GET['action'] == "updated"){
               echo '
-              <div class="alert alert-info alert-dismissible fade show text-center font-weight-bold mt-4" role="alert">
+              <div class="alert alert-success alert-dismissible fade show text-center font-weight-bold mt-4" role="alert">
                 Fiche mise à jour !
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
