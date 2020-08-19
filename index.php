@@ -32,7 +32,7 @@ include_once 'header.php';
             while($row = $stmt->fetch()) {
               ?>
               <tr>
-                <td><a href="artiste.php?id=<?php echo html($row['id']); ?>"><?php echo html($row['nom']); ?></a></td>
+                <td><a class="lead font-weight-bold" href="artiste.php?id=<?php echo html($row['id']); ?>"><?php echo html($row['nom']); ?></a></td>
                 <td><?php echo html($row['genre']); ?></td>
                 <td><?php echo html($row['pays_origine']); ?></td>
                 <td><a href="<?php echo html($row['site_web']); ?>">Site web</a></td>
@@ -50,8 +50,8 @@ include_once 'header.php';
   </div>
 
   <!-- Pagination -->
-  <div class="row justify-content-center ">
-    <div class="col-md-3 col-md-offset-4">
+  <div class="row justify-content-center border mb-3">
+    <div class="mx-auto py-2">
 	     <?php
 	     echo $pages->page_links();
 	     ?>

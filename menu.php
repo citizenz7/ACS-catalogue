@@ -28,9 +28,9 @@
         <a class="nav-link" href="./admin">Admin</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ok</button>
+    <form class="form-inline my-2 my-lg-0" method="Post" action="recherche.php">
+      <input class="form-control mr-sm-2" type="search" name="requete" placeholder="Rechercher" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
     </form>
   </div>
 </nav>
