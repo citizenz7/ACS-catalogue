@@ -1,3 +1,11 @@
+<?php include_once './includes/config.php'; ?>
+
+<?php
+$liste_id = $db->query('SELECT id FROM artiste')->fetchAll();
+$id_aleatoire = $liste_id[array_rand($liste_id, 1)]['id'];
+
+?>
+
 <nav class="navbar navbar-expand-lg navbar-light my-3" style="background-color: #cce5ff;">
   <a class="navbar-brand" href="./"><?php echo $SITENAME; ?></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,6 +16,9 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="./">Accueil <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="artiste.php?id=<?php echo $id_aleatoire; ?>">&Agrave découvrir<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="contact.php">Contact</a>
