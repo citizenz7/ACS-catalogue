@@ -4,17 +4,17 @@
 require_once('../includes/config.php');
 
 //if not logged in redirect to login page
-// if(!$user->is_logged_in()){
-//   header('Location: login.php');
-// }
+if(!$user->is_logged_in()){
+   header('Location: login.php');
+}
+
+$pagetitle = 'Nous contacter';
+include_once 'header.php';
 ?>
 
-<?php include_once 'header.php'; ?>
-
-
-<div class="container pt-5 pb-5">
+<div class="container pt-3 pb-5">
   <div class="row">
-    <div class="col-sm-12 px-5 text-justify">
+    <div class="col-sm-12 text-justify">
       <div class="pb-5">
 
 <?php
@@ -80,7 +80,7 @@ require_once('../includes/config.php');
 	?>
 
   <?php
-  include('../menu.php');
+  include('./menu.php');
   ?>
 
   <div class="pt-3 pb-3"><h2>Ajouter un utilisateur</h2></div>

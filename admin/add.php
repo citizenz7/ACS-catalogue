@@ -18,8 +18,8 @@ include_once 'header.php';
 if (isset($_POST['create'])) {
 
   // location where initial upload will be moved to
-  $target = "./" . $_FILES['image']['name'];
-  $path = '../'.$target;
+  $target = $_FILES['image']['name'];
+  $path = '../img/artistes/'.$target;
 
   $_POST = array_map( 'stripslashes', $_POST );
 

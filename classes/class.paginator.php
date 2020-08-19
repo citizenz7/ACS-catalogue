@@ -8,7 +8,7 @@
  */
 class Paginator{
 
-  /**
+        /**
 	 * set the number of items per page.
 	 *
 	 * @var numeric
@@ -120,21 +120,14 @@ class Paginator{
 	    $lastpage = ceil($this->_totalRows/$this->_perPage);
 	    $lpm1 = $lastpage - 1;
 
-	    if($this->_instance == "proj"){
-		$ancre = "#projets";
-	    }
-	    elseif($this->_instance == "art"){
-                $ancre = "#articles";
-            }
-
 	    $pagination = "";
 		if($lastpage > 1)
 		{
 		    $pagination .= "<div class='pagination'>";
 		if ($this->_page > 1)
-		    $pagination.= "<a href='".$path."$this->_instance=$prev"."$ext".$ancre."'>« précédent</a>";
+		    $pagination.= "<a href='".$path."$this->_instance=$prev"."$ext'>« previous</a>";
 		else
-		    $pagination.= "<span class='disabled'>« précédent</span>";
+		    $pagination.= "<span class='disabled'>« previous</span>";
 
 		if ($lastpage < 7 + ($adjacents * 2))
 		{
@@ -143,7 +136,7 @@ class Paginator{
 		if ($counter == $this->_page)
 		    $pagination.= "<span class='current'>$counter</span>";
 		else
-		    $pagination.= "<a href='".$path."$this->_instance=$counter"."$ext".$ancre."'>$counter</a>";
+		    $pagination.= "<a href='".$path."$this->_instance=$counter"."$ext'>$counter</a>";
 		}
 		}
 		elseif($lastpage > 5 + ($adjacents * 2))
@@ -155,47 +148,47 @@ class Paginator{
 		if ($counter == $this->_page)
 		    $pagination.= "<span class='current'>$counter</span>";
 		else
-		    $pagination.= "<a href='".$path."$this->_instance=$counter"."$ext".$ancre."'>$counter</a>";
+		    $pagination.= "<a href='".$path."$this->_instance=$counter"."$ext'>$counter</a>";
 		}
 		    $pagination.= "...";
-		    $pagination.= "<a href='".$path."$this->_instance=$lpm1"."$ext".$ancre."'>$lpm1</a>";
-		    $pagination.= "<a href='".$path."$this->_instance=$lastpage"."$ext".$ancre."'>$lastpage</a>";
+		    $pagination.= "<a href='".$path."$this->_instance=$lpm1"."$ext'>$lpm1</a>";
+		    $pagination.= "<a href='".$path."$this->_instance=$lastpage"."$ext'>$lastpage</a>";
 		}
 		elseif($lastpage - ($adjacents * 2) > $this->_page && $this->_page > ($adjacents * 2))
 		{
-		    $pagination.= "<a href='".$path."$this->_instance=1"."$ext".$ancre."'>1</a>";
-		    $pagination.= "<a href='".$path."$this->_instance=2"."$ext".$ancre."'>2</a>";
+		    $pagination.= "<a href='".$path."$this->_instance=1"."$ext'>1</a>";
+		    $pagination.= "<a href='".$path."$this->_instance=2"."$ext'>2</a>";
 		    $pagination.= "...";
 		for ($counter = $this->_page - $adjacents; $counter <= $this->_page + $adjacents; $counter++)
 		{
 		if ($counter == $this->_page)
 		    $pagination.= "<span class='current'>$counter</span>";
 		else
-		    $pagination.= "<a href='".$path."$this->_instance=$counter"."$ext".$ancre."'>$counter</a>";
+		    $pagination.= "<a href='".$path."$this->_instance=$counter"."$ext'>$counter</a>";
 		}
 		    $pagination.= "..";
-		    $pagination.= "<a href='".$path."$this->_instance=$lpm1"."$ext".$ancre."'>$lpm1</a>";
-		    $pagination.= "<a href='".$path."$this->_instance=$lastpage"."$ext".$ancre."'>$lastpage</a>";
+		    $pagination.= "<a href='".$path."$this->_instance=$lpm1"."$ext'>$lpm1</a>";
+		    $pagination.= "<a href='".$path."$this->_instance=$lastpage"."$ext'>$lastpage</a>";
 		}
 		else
 		{
-		    $pagination.= "<a href='".$path."$this->_instance=1"."$ext".$ancre."'>1</a>";
-		    $pagination.= "<a href='".$path."$this->_instance=2"."$ext".$ancre."'>2</a>";
+		    $pagination.= "<a href='".$path."$this->_instance=1"."$ext'>1</a>";
+		    $pagination.= "<a href='".$path."$this->_instance=2"."$ext'>2</a>";
 		    $pagination.= "..";
 		for ($counter = $lastpage - (2 + ($adjacents * 2)); $counter <= $lastpage; $counter++)
 		{
 		if ($counter == $this->_page)
 		    $pagination.= "<span class='current'>$counter</span>";
 		else
-		    $pagination.= "<a href='".$path."$this->_instance=$counter"."$ext".$ancre."'>$counter</a>";
+		    $pagination.= "<a href='".$path."$this->_instance=$counter"."$ext'>$counter</a>";
 		}
 		}
 		}
 
 		if ($this->_page < $counter - 1)
-		    $pagination.= "<a href='".$path."$this->_instance=$next"."$ext".$ancre."'>suivant »</a>";
+		    $pagination.= "<a href='".$path."$this->_instance=$next"."$ext'>next »</a>";
 		else
-		    $pagination.= "<span class='disabled'>suivant »</span>";
+		    $pagination.= "<span class='disabled'>next »</span>";
 		    $pagination.= "</div>\n";
 		}
 
