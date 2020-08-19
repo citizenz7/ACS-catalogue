@@ -18,7 +18,7 @@ include_once 'header.php';
 				':id' => $delimage
 			));
 			$sup = $stmt->fetch();
-			$file = "../" . $sup['image'];
+			$file = "../img/" . $sup['image'];
 			if (file_exists($file)) {
 				unlink($file);
 			}
@@ -40,7 +40,7 @@ include_once 'header.php';
           <div class="text-center mb-4 alert alert-primary" role="alert">Bienvenue <b><?php echo $_SESSION['username']; ?></b> ! Vous êtes connecté.</div>
 
 	  <?php
-	  if(isset($_GET['actionA']) && $_GET['actionA'] == "updated"){
+	  if(isset($_GET['action']) && $_GET['action'] == "updated"){
               echo '
               <div class="alert alert-info alert-dismissible fade show text-center font-weight-bold mt-4" role="alert">
                 Fiche mise à jour !

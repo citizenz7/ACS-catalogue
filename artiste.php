@@ -18,10 +18,10 @@ try {
       echo '<i class="fas fa-flag"></i> Pays d\'origine : ' . $row['pays_origine'] . '</p>';
 
       if (empty($row['image'])) {
-        echo '<p class="text-justify"><img class="img-fluid float-left" style="max-height: 275px; margin-right: 10px;" src="./img/nophoto.png" alt="' . $row['nom'] . '">' . $row['presentation'] . '</p>';
+        echo '<p class="text-justify"><img class="img-fluid float-left mr-3 mb-3" src="./img/nophoto.png" alt="' . $row['nom'] . '">' . $row['presentation'] . '</p>';
       }
       else {
-        echo '<p class="text-justify"><img class="img-fluid float-left" style="max-height: 275px; margin-right: 10px;" src="./img/' . $row['image'] . '" alt="' . $row['nom'] . '">' . $row['presentation'] . '</p>';
+        echo '<p class="text-justify"><img class="img-fluid float-left mr-3 mb-3" src="./img/artistes/' . $row['image'] . '" alt="' . $row['nom'] . '">' . $row['presentation'] . '</p>';
       }
       echo '<p class="text-justify">' . $row['biographie'] . '</p>';
 

@@ -24,11 +24,12 @@ if(!$user->is_logged_in()){
 $id = html($_GET['id']);
 
 if (isset($_POST['update'])) {
-  $stmt = $db->prepare("UPDATE artiste SET nom=:nom,genre=:genre,pays_origine=:pays_origine,biographie=:biographie,discographie=:discographie,active=:active,label=:label,site_web=:site_web,image=:image,youtube=:youtube WHERE id=$id");
+  $stmt = $db->prepare("UPDATE artiste SET nom=:nom,genre=:genre,pays_origine=:pays_origine,presentation=:presentation,biographie=:biographie,discographie=:discographie,active=:active,label=:label,site_web=:site_web,image=:image,youtube=:youtube WHERE id=$id");
   $stmt->execute(array(
     ':nom' => $_POST['nom'],
     ':genre' => $_POST['genre'],
     ':pays_origine' => $_POST['pays_origine'],
+    'presentation' => $_POST['presentation'],
     'biographie' => $_POST['biographie'],
     'discographie' => $_POST['discographie'],
     'active' => $_POST['active'],
@@ -37,6 +38,10 @@ if (isset($_POST['update'])) {
     'image' => $_POST['image'],
     'youtube' => $_POST['youtube']
   ));
+
+  //redirect to index page
+  header('Location: index.php?action=updated');
+  exit;
 }
 ?>
 
