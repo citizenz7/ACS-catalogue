@@ -4,7 +4,7 @@ $pagetitle = 'Recherche';
 include_once 'header.php';
 ?>
 
-<div class="container pt-5 pb-5">
+<div class="container pt-5 mt-5 pb-5">
   <div class="row">
     <div class="col-sm-12 px-3 py-3 text-justify border">
 
