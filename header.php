@@ -33,6 +33,4 @@
   <body>
 <?php //include_once 'sidebar.php'; ?>
 
-<div class="container">
-
 <?php include_once 'menu.php'; ?>

@@ -3,13 +3,32 @@ $pagetitle = 'Bienvenue sur le site de catalogue de musique de l\'ACS Nevers !';
 include_once 'header.php';
 ?>
 
+<div id="intro" class="container-fluid">
+  <div class="col-sm-12 pl-4 pt-5 ml-3 text-center text-white">
+    <i class="fas fa-microphone fa-9x pr-5"></i><i class="fas fa-music fa-9x pr-5"></i><i class="fas fa-headphones fa-9x"></i>
+    <br>
+    <h1 class="font-weight-bold pt-5">ACS Groove</h1>
+    <h2>Le site qu'il est vachement bien !</h2>
+    <h2>Musicalement parlant !</h2>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm-12">
+      <h4 class="py-3 px-3"><i class="fas fa-headphones"></i> Les dernières fiches :</h4><hr>
+    </div>
+  </div>
+
+
 <!-- 5 derniers articles -->
 <div class="row">
 
-    <div class="col-sm-12 pl-4 pb-3 ml-3 text-center">
+<!--<div class="col-sm-12 pl-4 pb-3 ml-3 text-center">
       <h3 class="font-weight-bold">ACS Groove : le site qu'il est vachement bien ! ... Musicalement parlant !</h3>
       <h4><i class="fas fa-headphones"></i> Les dernières fiches :</h4>
-    </div>
+    </div> -->
 
   <?php
     try {
@@ -70,7 +89,7 @@ include_once 'header.php';
   </div>
 </div>
 
-<div class="row">
+<div class="row pb-5">
 
   <div class="col-sm-6 mt-3">
     <div class="card">

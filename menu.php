@@ -1,12 +1,10 @@
-<?php include_once './includes/config.php'; ?>
-
 <?php
 $liste_id = $db->query('SELECT id FROM artiste')->fetchAll();
 $id_aleatoire = $liste_id[array_rand($liste_id, 1)]['id'];
 
 ?>
 
-<nav class="navbar navbar-expand-lg navbar-light my-3" style="background-color: #cce5ff;">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #cce5ff;">
   <a class="navbar-brand" href="./"><?php echo $SITENAME; ?></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
