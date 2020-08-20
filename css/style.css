@@ -1,4 +1,54 @@
-.sidebar-container {
+/* __________NAVBAR__________ */
+#navbar {
+ overflow: hidden;
+ background-color: #333;
+ z-index: 1;
+ display: flex;
+}
+
+#navbar a {
+  display: inline-block;
+ color: #f2f2f2;
+ text-align: center;
+ padding: 14px;
+ text-decoration: none;
+}
+
+.container {
+ padding: 16px;
+}
+
+.sticky {
+ position: fixed;
+ top: 0;
+ width: 100%;
+}
+
+.sticky + .container {
+ padding-top: 60px;
+}
+.navform{
+  height: 50px;
+}
+.btn-outline-success:hover{
+  border-color: white;
+  background-color: grey;
+}
+
+.btn-outline-success{
+  border-color: white;
+  color: white;
+}
+.mid-element{
+  display: flex;
+  justify-content: center;
+}
+.right-element{
+  display: flex;
+  justify-content: flex-end;
+}
+/* __________Yacine__________ */
+/* .sidebar-container {
   position: fixed;
   width: 220px;
   height: 100%;
@@ -81,7 +131,7 @@
 
 .content-container {
   padding-left: 220px;
-}
+} */
 
 /* PAGINATION */
 .pagination {
