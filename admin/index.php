@@ -101,7 +101,7 @@ include_once 'header.php';
               // -----------------------------------------------------------------
 
 						   // Protection du tri -----------------------------------------------
-						   if (!empty($_GET['tri']) && !in_array($_GET['tri'], array('id','nom', 'genre', 'pays', 'presentation', 'biographie', 'discographie', 'active', 'label', 'site_web', 'date', 'image', 'youtuybe'))) {
+						   if (!empty($_GET['tri']) && !in_array($_GET['tri'], array('id','nom', 'genre', 'pays', 'presentation', 'biographie', 'discographie', 'active', 'label', 'site_web', 'date', 'image', 'youtube'))) {
 							    header('Location: index.php');
 							    exit();
 						   }
