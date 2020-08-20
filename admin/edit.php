@@ -22,7 +22,7 @@ include_once 'header.php';
 				unlink($file);
 			}
 			//puis on supprime l'image dans la base
-			$stmt = $db->prepare('UPDATE artiste SET image = NULL WHERE idD = :id');
+			$stmt = $db->prepare('UPDATE artiste SET image = NULL WHERE id = :id');
 			$stmt->execute(array(
         ':id' => $delimage
       ));

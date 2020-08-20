@@ -6,14 +6,15 @@ include_once 'header.php';
 <!-- 5 derniers articles -->
 <div class="row">
 
-    <div class="col-sm-12 pl-4 ml-3">
-      <h2>Les dernières fiches :</h2>
+    <div class="col-sm-12 pl-4 pb-3 ml-3 text-center">
+      <h3 class="font-weight-bold">ACS Groove : le site qu'il est vachement bien ! ... Musicalement parlant !</h3>
+      <h4><i class="fas fa-headphones"></i> Les dernières fiches :</h4>
     </div>
 
   <?php
     try {
       //pagination
-      $pages = new Paginator('6','art');
+      $pages = new Paginator('9','art');
 
       //on collecte tous les enregistrements de la fonction
       $stmt = $db->query('SELECT id FROM artiste');
@@ -28,7 +29,7 @@ include_once 'header.php';
       <div class="col-md-4">
         <div class="profile-card-6">
           <img src="./img/artistes/<?php echo $row['image']; ?>" class="img-fluid">
-          <div class="profile-name"><a class="text-decoration-none text-white" href="artiste.php?id=<?php echo html($row['id']); ?>"><?php echo html($row['nom']); ?></a></div>
+          <div class="profile-name"><a class="text-decoration-none text-white" target="_blank" href="artiste.php?id=<?php echo html($row['id']); ?>"><?php echo html($row['nom']); ?></a></div>
           <div class="profile-position"><?php echo $row['genre']; ?></div>
           <div class="profile-overview">
             <div class="profile-overview">

@@ -64,9 +64,9 @@ include_once 'header.php';
 	  <table class="table table-sm table-hover table-responsive-sm">
 	    <thead class="thead-light">
             <tr>
-              <th>ID</th>
-              <th width="70%">Nom</th>
-              <th>Date d'ajout</th>
+              <th><a href="index.php?tri=id&ordre=desc"><i class="fas fa-sort-up"></i></a>Id<a href="index.php?tri=id&ordre=asc"><i class="fas fa-sort-down"></i></a></th>
+              <th width="60%"><a href="index.php?tri=nom&ordre=desc"><i class="fas fa-sort-up"></i></a>Nom<a href="index.php?tri=nom&ordre=asc"><i class="fas fa-sort-down"></i></a</th>
+              <th><a href="index.php?tri=dat&ordre=desc"><i class="fas fa-sort-up"></i></a>Date d'ajout<a href="index.php?tri=date&ordre=asc"><i class="fas fa-sort-down"></i></a</th>
               <th class="text-center">Action</th>
 	    </tr>
 	    </thead>
@@ -74,7 +74,7 @@ include_once 'header.php';
               <?php
               try {
                 //Pagination : on instancie la class
-                $pages = new Paginator('5','art');
+                $pages = new Paginator('7','art');
 
                 //on collecte tous les enregistrements de la fonction
                 $stmt = $db->query('SELECT id FROM artiste');
@@ -82,7 +82,36 @@ include_once 'header.php';
                 //On détermine le nombre total d'enregistrements
                 $pages->set_total($stmt->rowCount());
 
-                $stmt = $db->query('SELECT * FROM artiste ORDER BY id DESC ' .$pages->get_limit());
+                // On met en place le tri--------------------------------------------
+						    if(isset($_GET['tri'])) {
+							     $tri = html($_GET['tri']);
+						    }
+						    else {
+							     $post_tri = 'date';
+							     $tri = html($post_tri);
+						    }
+
+						    if(isset($_GET['ordre'])) {
+							     $ordre = html($_GET['ordre']);
+						    }
+						    else {
+							     $ordre_tri = 'desc';
+							     $ordre = html($ordre_tri);
+						    }
+              // -----------------------------------------------------------------
+
+						   // Protection du tri -----------------------------------------------
+						   if (!empty($_GET['tri']) && !in_array($_GET['tri'], array('id','nom', 'genre', 'pays', 'presentation', 'biographie', 'discographie', 'active', 'label', 'site_web', 'date', 'image', 'youtuybe'))) {
+							    header('Location: index.php');
+							    exit();
+						   }
+						   if (!empty($_GET['ordre']) && !in_array($_GET['ordre'], array('asc','desc','ASC','DESC'))) {
+							    header('Location: index.php');
+							    exit();
+						   }
+						  // -----------------------------------------------------------------
+
+                $stmt = $db->query('SELECT * FROM artiste ORDER BY '.$tri.' '.$ordre.' ' .$pages->get_limit());
                 while($row = $stmt->fetch()){
 
                   echo '<tr>';
