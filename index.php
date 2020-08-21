@@ -27,7 +27,7 @@ include_once 'header.php';
 
 
 <!-- 5 derniers articles -->
-<div class="row">
+<div id="back2" class="row px-3 py-5">
 
 <!--<div class="col-sm-12 pl-4 pb-3 ml-3 text-center">
       <h3 class="font-weight-bold">ACS Groove : le site qu'il est vachement bien ! ... Musicalement parlant !</h3>
@@ -85,17 +85,17 @@ include_once 'header.php';
 </div>
 
 <!-- Pagination -->
-<div class="row justify-content-center mb-3">
-  <div class="mx-auto py-2">
+<div class="row justify-content-center">
+  <div class="col-12 text-center mt-3 mb-3 border">
 	   <?php
-	   echo $pages->page_links();
+	     echo $pages->page_links();
 	   ?>
   </div>
 </div>
 
-<div class="row pb-5">
+<div class="row pb-3">
 
-  <div class="col-sm-6 mt-3">
+  <div class="col-sm-6 mt-3 pl-0">
     <div class="card">
       <div class="card-body text-center">
         <h5 class="card-title">Archives par date</h5>
@@ -117,7 +117,7 @@ include_once 'header.php';
     </div>
   </div>
 
-  <div class="col-sm-6 mt-3">
+  <div class="col-sm-6 mt-3 pr-0">
     <div class="card">
       <div class="card-body text-center">
         <h5 class="card-title">Archives par genre</h5>

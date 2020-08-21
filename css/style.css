@@ -89,6 +89,7 @@
   clear: both;
   padding-bottom: 10px;
   padding-top: 10px;
+  justify-content: center;
 }
 
 .pagination a {
@@ -228,4 +229,13 @@
   background-attachment: fixed;
   /* padding-top: 180px;
   padding-bottom: 180px; */
+}
+
+#back2 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/back2.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }

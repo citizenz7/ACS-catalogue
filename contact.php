@@ -68,8 +68,8 @@ if (isset($_POST['submit'])) {
 ?>
 
 <div class="container pb-5">
-  <div class="row">
-    <div class="col-sm-12 px-3 py-1 text-justify border">
+  <div class="row mt-5">
+    <div class="col-sm-12 px-3 mt-5 text-justify border">
       <?php
       // Affichage : message envoyé !
           if(isset($_GET['action']) && $_GET['action'] == "ok"){

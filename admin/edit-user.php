@@ -8,9 +8,9 @@ if(!$user->is_logged_in()){
 }
 ?>
 
-<div class="container pt-3 pb-5">
+<div class="container pt-3 pb-3 mt-5">
   <div class="row">
-    <div class="col-sm-12 px-5 text-justify">
+    <div class="col-sm-12 px-5 text-justify mt-5">
       <div class="pb-5">
 
 	<?php
@@ -131,6 +131,7 @@ if(!$user->is_logged_in()){
 </div>
 </div>
 </div>
-
+</div>
+</div>
 
 <?php include_once 'footer.php'; ?>

@@ -12,9 +12,9 @@ $pagetitle = 'Nous contacter';
 include_once 'header.php';
 ?>
 
-<div class="container pt-3 pb-5">
+<div class="container pt-3 mt-5">
   <div class="row">
-    <div class="col-sm-12 text-justify">
+    <div class="col-sm-12 mt-5 text-justify">
       <div class="pb-5">
 
 <?php
