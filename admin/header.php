@@ -92,7 +92,7 @@
         <a class="nav-link" href="index.php">Admin</a>
       </li>
       </ul>
-      <form class="form-inline ml-auto w-100 justify-content-end" method="post" action="recherche.php">
+      <form class="form-inline ml-auto w-100 justify-content-end" method="post" action="../recherche.php">
         <input class="form-control mr-sm-2" type="search" name="requete" placeholder="Rechercher"aria-label="Search">
         <button class="btn my-2 my-sm-0 btn-light" type="submit">OK</button>
       </form>
