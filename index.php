@@ -95,7 +95,7 @@ include_once 'header.php';
 
 <div class="row pb-3">
 
-  <div class="col-sm-6 mt-3">
+  <div class="col-sm-4 mt-3">
     <div class="card">
       <div class="card-body text-center">
         <h5 class="card-title">Archives par date</h5>
@@ -117,7 +117,7 @@ include_once 'header.php';
     </div>
   </div>
 
-  <div class="col-sm-6 mt-3">
+  <div class="col-sm-4 mt-3">
     <div class="card">
       <div class="card-body text-center">
         <h5 class="card-title">Archives par genre</h5>
@@ -129,6 +129,26 @@ include_once 'header.php';
             $stmt = $db->query("SELECT genre FROM artiste GROUP BY genre ORDER BY genre DESC");
             while($row = $stmt->fetch()){
               echo "<option value='archives2.php?genre=" . $row['genre'] . "'>" . $row['genre'] . "</option>";
+            }
+            ?>
+          </select>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-4 mt-3">
+    <div class="card">
+      <div class="card-body text-center">
+        <h5 class="card-title">Archives par nom</h5>
+        <p class="card-text">
+          Vous trouverez ci-dessous les archives classées par nom d'artiste/groupe
+          <select onchange="document.location.href = this.value" class="custom-select custom-select-sm smalltext mt-4">
+            <option selected>Nom</option>
+            <?php
+            $stmt = $db->query("SELECT id,nom FROM artiste GROUP BY nom ORDER BY nom ASC");
+            while($row = $stmt->fetch()){
+              echo "<option value='artiste.php?id=" . $row['id'] . "'>" . $row['nom'] . "</option>";
             }
             ?>
           </select>
