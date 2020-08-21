@@ -62,12 +62,12 @@ include_once 'header.php';
                 </div>
                 <div class="col-xs-4">
                   <a href="<?php echo $row['youtube'] ?>">
-                    <img src="./img/icons/youtube.png" alt="youtube">
+                    <img class="border-style" src="./img/icons/youtube.png" alt="youtube">
                   </a>
                 </div>
                 <div class="col-xs-4">
                   <a href="<?php echo $row['site_web'] ?>">
-                    <img src="./img/icons/www.png" alt="site web">
+                    <img class="border-style" src="./img/icons/www.png" alt="site web">
                   </a>
                 </div>
               </div>

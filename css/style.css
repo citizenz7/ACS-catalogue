@@ -1,5 +1,3 @@
-/* __________NAVBAR__________ */
-
 /* __________Yacine__________ */
 /* .sidebar-container {
   position: fixed;
@@ -214,6 +212,11 @@
 .profile-card-6:hover .profile-overview img {
   opacity: 1;
   filter: brightness(85%);
+}
+.profile-overview a:hover{
+  filter: drop-shadow(0 0 6px crimson)
+  brightness(95%);
+  transition: all 0.15s linear;
 }
 
 #intro {
