@@ -13,7 +13,11 @@ include_once 'header.php';
     <br>
     <h1 class="font-weight-bold">ACS Groove</h1>
     <h2>L'annuaire musical neversois !</h2>
-    <h4><i><i class="fas fa-music"></i> I like to move it, move it ! <i class="fas fa-music"></i></i></h4>
+    <h4 onclick="play()">
+      <audio id="audio" src="scripts/script-ressources/sample.mp3"></audio>
+      <i><i class="fas fa-music"></i> I like to move it, move it ! <i class="fas fa-music"></i>
+      </i>
+    </h4>
   </div>
 </div>
 
