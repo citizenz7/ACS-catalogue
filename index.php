@@ -1,18 +1,19 @@
 <?php
+include_once './includes/config.php';
 $pagetitle = 'Bienvenue sur le site de catalogue de musique de l\'ACS Nevers !';
 include_once 'header.php';
 ?>
 
-<div id="intro" class="container-fluid">
-  <div class="col-sm-12 pl-4 ml-3 py-5 text-center text-white">
+<div id="intro" class="container-fluid py-5">
+  <div class="col-sm-12 py-5 text-center text-white">
     <p class="text-center py-5">
-      <img class="img-fluid" src="./img/logo.png" alt="logo ACS GROOVE" style="max-height: 350px;">
+      <img class="img-fluid pt-5" src="./img/logo.png" alt="logo ACS GROOVE" style="max-height: 350px;">
     </p>
     <!-- <i class="fas fa-microphone fa-5x pr-5"></i><i class="fas fa-music fa-5x pr-5"></i><i class="fas fa-headphones fa-5x"></i> -->
     <br>
-    <h2 class="font-weight-bold pt-3">ACS Groove</h2>
-    <h3>Le site qu'il est vachement bien !</h3>
-    <h3>Musicalement parlant !</h3>
+    <h1 class="font-weight-bold pt-3">ACS Groove</h1>
+    <h2>L'annuaire musical neversois !</h2>
+    <h4 class="pb-5"><i><i class="fas fa-music"></i> I like to move it, move it ! <i class="fas fa-music"></i></i></h4>
   </div>
 </div>
 
