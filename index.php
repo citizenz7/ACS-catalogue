@@ -1,4 +1,5 @@
 <?php
+include_once './includes/config.php';
 $pagetitle = 'Bienvenue sur le site de catalogue de musique de l\'ACS Nevers !';
 include_once 'header.php';
 ?>

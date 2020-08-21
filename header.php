@@ -1,4 +1,6 @@
-<?php include_once './includes/config.php'; ?>
+<?php
+$pagetitle = "ACS Groove : l'annuaire musical neversois de Yacine, Oswald et Olivier";
+?>
 
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
