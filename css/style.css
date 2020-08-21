@@ -1,12 +1,5 @@
 /* __________NAVBAR__________ */
-@media (min-width: 768px) {
-    .abs-center-x {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-}
-}
+
 /* __________Yacine__________ */
 /* .sidebar-container {
   position: fixed;
