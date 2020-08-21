@@ -1,51 +1,11 @@
 /* __________NAVBAR__________ */
-#navbar {
- overflow: hidden;
- background-color: #333;
- z-index: 1;
- display: flex;
+@media (min-width: 768px) {
+    .abs-center-x {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
-
-#navbar a {
-  display: inline-block;
- color: #f2f2f2;
- text-align: center;
- padding: 14px;
- text-decoration: none;
-}
-
-.container {
- padding: 16px;
-}
-
-.sticky {
- position: fixed;
- top: 0;
- width: 100%;
-}
-
-.sticky + .container {
- padding-top: 60px;
-}
-.navform{
-  height: 50px;
-}
-.btn-outline-success:hover{
-  border-color: white;
-  background-color: grey;
-}
-
-.btn-outline-success{
-  border-color: white;
-  color: white;
-}
-.mid-element{
-  display: flex;
-  justify-content: center;
-}
-.right-element{
-  display: flex;
-  justify-content: flex-end;
 }
 /* __________Yacine__________ */
 /* .sidebar-container {
@@ -260,6 +220,7 @@
 }
 .profile-card-6:hover .profile-overview img {
   opacity: 1;
+  filter: brightness(85%);
 }
 
 #intro {
