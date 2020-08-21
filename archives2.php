@@ -29,7 +29,7 @@ $stmt->execute(array(
   <div class="row">
     <div class="col-sm-12 px-3 py-3">
 
-          <h2 class="pt-3 pb-4">Archives pour le genre : <?php echo html($genre); ?></h2>
+          <h2 class="pt-5 pb-4">Archives pour le genre : <?php echo html($genre); ?></h2>
 		<?php
 		while($row = $stmt->fetch()){
 			echo '<div class="border my-3">';
@@ -41,9 +41,9 @@ $stmt->execute(array(
          if (strlen($chaine) >= $max) {
 	       	 $chaine = substr($chaine, 0, $max);
 	       	 $espace = strrpos($chaine, " ");
-	       	 $chaine = substr($chaine, 0, $espace).'... <span class="pl-1 font-weight-bold"><a href="artiste.php?id=' . html($row['id']) . '">Lire la suite</a></span>';
+	       	 $chaine = substr($chaine, 0, $espace).'<span class="pl-1 font-weight-bold"><a class="text-danger" href="artiste.php?id=' . html($row['id']) . '">... [ Lire la suite ]</a></span>';
          }
-         echo '<div class="px-3 text-justify">' . nl2br($chaine) . '</div>';
+         echo '<div class="px-3 py-3 text-justify">' . nl2br($chaine) . '</div>';
 
 				 // echo '<div class="px-3 text-justify">' . nl2br($row['presentation']) . '</div>';
 			   //echo '<p class="px-3"><a href="artiste.php?id=' . html($row['id']) . '">Lire la suite</a></p>';

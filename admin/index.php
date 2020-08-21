@@ -33,7 +33,7 @@ include_once 'header.php';
 ?>
 
 <!-- Projets -->
-  <div class="container pt-3 pb-3">
+  <div class="container pt-3 pb-3 mt-5">
     <div class="row">
       <div class="col-sm-12 text-justify">
         <div class="pb-2">
@@ -167,5 +167,5 @@ include_once 'header.php';
     </div>
   </div>
 </div>
-
+</div>
 <?php include_once 'footer.php'; ?>
