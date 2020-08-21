@@ -50,7 +50,7 @@ include_once 'header.php';
       ?>
 
       <div class="col-md-4">
-        <div class="profile-card-6">
+        <div class="profile-card-6 border">
           <img src="./img/artistes/<?php echo $row['image']; ?>" class="img-fluid">
           <div class="profile-name"><a class="text-decoration-none text-white" target="_blank" href="artiste.php?id=<?php echo html($row['id']); ?>"><?php echo html($row['nom']); ?></a></div>
           <div class="profile-position"><?php echo $row['genre']; ?></div>
@@ -86,7 +86,7 @@ include_once 'header.php';
 
 <!-- Pagination -->
 <div class="row justify-content-center">
-  <div class="col-12 text-center mt-3 mb-3 border">
+  <div class="col-12 text-center mt-4 mb-3 pt-1 border">
 	   <?php
 	     echo $pages->page_links();
 	   ?>
@@ -95,7 +95,7 @@ include_once 'header.php';
 
 <div class="row pb-3">
 
-  <div class="col-sm-6 mt-3 pl-0">
+  <div class="col-sm-6 mt-3">
     <div class="card">
       <div class="card-body text-center">
         <h5 class="card-title">Archives par date</h5>
@@ -117,7 +117,7 @@ include_once 'header.php';
     </div>
   </div>
 
-  <div class="col-sm-6 mt-3 pr-0">
+  <div class="col-sm-6 mt-3">
     <div class="card">
       <div class="card-body text-center">
         <h5 class="card-title">Archives par genre</h5>
