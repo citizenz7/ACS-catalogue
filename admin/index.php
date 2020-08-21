@@ -36,7 +36,7 @@ include_once 'header.php';
   <div class="container pt-3 pb-3 mt-5">
     <div class="row">
       <div class="col-sm-12 text-justify">
-        <div class="pb-2">
+        <div class="pb-2 mt-3">
           <div class="text-center mb-4 alert alert-primary" role="alert">Bienvenue <b><?php echo $_SESSION['username']; ?></b> ! Vous êtes connecté.</div>
 
 	  <?php

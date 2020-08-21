@@ -9,9 +9,9 @@ if(!$user->is_logged_in()){
 include_once 'header.php';
 ?>
 
-<div class="container pt-5 pb-5">
+<div class="container mt-5">
   <div class="row">
-    <div class="col-sm-12 px-5 text-justify">
+    <div class="col-sm-12 px-3 mt-5 text-justify">
       <div class="pb-5">
 
 <?php

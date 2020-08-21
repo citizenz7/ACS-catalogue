@@ -13,12 +13,12 @@ if($user->is_logged_in()){
 <div class="container-fluid">
   <div class="container pt-3 pb-5">
     <div class="row text-center">
-      <div class="col-md-4 offset-md-4">
-        <div class="card">
-          <div class="card-body">
-
-            <div class="pb-3"><h4>Connexion Espace Admin</h4>
-              <i class="fas fa-sign-in-alt fa-4x"></i>
+      <div class="col-md-4 offset-md-4 mt-5">
+        <div class="card mt-5">
+          <div class="card-body mt-1">
+            <i class="fas fa-sign-in-alt fa-4x"></i>
+            <div class="pb-3">
+              <h4>Connexion Espace Admin</h4>
             </div>
             <form action="" method="post">
               <div class="form-group py-2 px-2">
@@ -59,6 +59,8 @@ if(isset($_POST['submit'])){
 if(isset($message)){ echo $message; }
 ?>
 
+</div>
+</div>
 </div>
 </div>
 </div>
