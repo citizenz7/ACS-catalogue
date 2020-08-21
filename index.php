@@ -55,7 +55,17 @@ include_once 'header.php';
 
       <div class="col-md-4">
         <div class="profile-card-6 border">
+          <?php
+          if(!empty($row['image'])) {
+          ?>
           <img src="./img/artistes/<?php echo $row['image']; ?>" class="img-fluid">
+          <?php }
+          else {
+          ?>
+            <img src="./img/nophoto.png" class="img-fluid">
+          <?php
+          }
+          ?>
           <div class="profile-name"><a class="text-decoration-none text-white" target="_blank" href="artiste.php?id=<?php echo html($row['id']); ?>"><?php echo html($row['nom']); ?></a></div>
           <div class="profile-position"><?php echo $row['genre']; ?></div>
           <div class="profile-overview">

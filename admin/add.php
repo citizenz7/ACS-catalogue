@@ -156,15 +156,15 @@ include('menu.php');
 <form action='' method='post' enctype="multipart/form-data">
    <div class="form-group">
      <label for="nomartiste">Nom</label>
-     <input type="text" name="nom" class="form-control" id="nomartiste" value='<?php if(isset($error)){ echo $_POST['nom']; } ?>'>
+     <input type="text" name="nom" class="form-control" id="nomartiste" value='<?php if(isset($error)){ echo $_POST['nom']; } ?>' required>
    </div>
    <div class="form-group">
      <label for="genreartiste">Genre</label>
-     <input type="text" name="genre" class="form-control" id="genreartiste" value='<?php if(isset($error)){ echo $_POST['genre']; } ?>'>
+     <input type="text" name="genre" class="form-control" id="genreartiste" value='<?php if(isset($error)){ echo $_POST['genre']; } ?>' required>
    </div>
    <div class="form-group">
      <label for="paysartiste">Pays d'origine</label>
-     <input type="text" name="pays_origine" class="form-control" id="paysartiste" value='<?php if(isset($error)){ echo $_POST['pays_origine']; } ?>'>
+     <input type="text" name="pays_origine" class="form-control" id="paysartiste" value='<?php if(isset($error)){ echo $_POST['pays_origine']; } ?>' required>
    </div>
    <div class="form-group">
      <label for="presartiste">Présentation</label>
@@ -180,15 +180,15 @@ include('menu.php');
    </div>
    <div class="form-group">
      <label for="activeartiste">Activité</label>
-     <input type="text" name="active" class="form-control" id="activeartiste" value='<?php if(isset($error)){ echo $_POST['active']; } ?>'>
+     <input type="text" name="active" class="form-control" id="activeartiste" value='<?php if(isset($error)){ echo $_POST['active']; } ?>' required>
    </div>
    <div class="form-group">
      <label for="labelartiste">Label</label>
-     <input type="text" name="label" class="form-control" id="labelartiste" value='<?php if(isset($error)){ echo $_POST['label']; } ?>'>
+     <input type="text" name="label" class="form-control" id="labelartiste" value='<?php if(isset($error)){ echo $_POST['label']; } ?>' required>
    </div>
    <div class="form-group">
      <label for="siteartiste">Site web</label>
-     <input type="text" name="site_web" class="form-control" id="siteartiste" value='<?php if(isset($error)){ echo $_POST['site_web']; } ?>'>
+     <input type="text" name="site_web" class="form-control" id="siteartiste" value='<?php if(isset($error)){ echo $_POST['site_web']; } ?>' required>
    </div>
    <div class="form-group">
      <label for="imageartiste">Image <small>(images jpeg ou png seulement)</small></label>

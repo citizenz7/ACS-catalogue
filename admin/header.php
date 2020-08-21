@@ -71,7 +71,7 @@
 
   ?>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand d-flex w-50 mr-auto" href="#">ACS Groove</a>
+    <a class="navbar-brand d-flex w-50 mr-auto" href="../">ACS Groove</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -79,7 +79,7 @@
     <div class="navbar-collapse collapse w-100" id="navbarTogglerDemo02">
       <ul class="navbar-nav w-100 justify-content-center">
         <li class="nav-item">
-          <a class="nav-link" href="../index.php">Accueil<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="../">Accueil<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../artiste.php?id=<?php echo $id_aleatoire; ?>">&Agrave découvrir</a>
