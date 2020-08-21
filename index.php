@@ -4,7 +4,7 @@ include_once 'header.php';
 ?>
 
 <div id="intro" class="container-fluid">
-  <div class="col-sm-12 pl-4 ml-3 py-5 text-center text-white">
+  <div class="col-sm-12 pl-4 py-5 text-center text-white">
     <p class="text-center py-5">
       <img class="img-fluid" src="./img/logo.png" alt="logo ACS GROOVE" style="max-height: 350px;">
     </p>
