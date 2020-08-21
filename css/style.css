@@ -224,14 +224,12 @@
 }
 
 #intro {
-  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/back1.jpg");
-  /* Set a specific height */
-  /* Position and center the image to scale nicely on all screens */
+  height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  padding-top: 100px;
-  padding-bottom: 100px;
+  /* padding-top: 180px;
+  padding-bottom: 180px; */
 }

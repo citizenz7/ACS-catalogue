@@ -63,9 +63,40 @@
   <body>
 <?php //include_once 'sidebar.php'; ?>
 
+<div class="container-fluid">
+<?php
+$liste_id = $db->query('SELECT id FROM artiste')->fetchAll();
+$id_aleatoire = $liste_id[array_rand($liste_id, 1)]['id'];
+
+?>
+<div id="navbar" class="sticky">
+  <div class="col-md-4">
+  </div>
+  <div class="col-md-4 mid-element">
+    <ul class="nav">
+      <li>
+        <a class="nav-link active" href="../">Home</a>
+      </li>
+      <li>
+        <a class="nav-link" href="../artiste.php?id=<?php echo $id_aleatoire; ?>">&Agrave découvrir</a>
+      </li>
+      <li>
+        <a class="nav-link" href="../contact.php">Contact</a>
+      </li>
+    </ul>
+  </div>
+      <div id="search-bar" class="nl-auto nav-item col-md-4 right-element">
+<form class="form-inline navform" method="Post" action="recherche.php">
+      <input class="form-control mr-sm-2" type="search" name="requete" placeholder="Rechercher" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+    </form>
+    </div>
+</div>
+</div>
+
 <div class="container">
 
-  <nav class="navbar navbar-expand-lg navbar-light my-3" style="background-color: #cce5ff;">
+  <!-- <nav class="navbar navbar-expand-lg navbar-light my-3" style="background-color: #cce5ff;">
     <a class="navbar-brand" href="../"><?php echo $SITENAME; ?></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -79,27 +110,12 @@
         <li class="nav-item">
           <a class="nav-link" href="../contact.php">Contact</a>
         </li>
-        <!--
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Artistes/Groupes
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Tri par genre</a>
-            <a class="dropdown-item" href="#">Tri par pays origine</a>
-
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="./">Admin</a>
-            <a class="dropdown-item" href="../archives.php">Archives</a>
-          </div>
-        </li>
-      -->
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ok</button>
       </form>
     </div>
-  </nav>
+  </nav> -->
 
 <?php //include_once '../menu.php'; ?>

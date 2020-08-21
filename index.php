@@ -4,12 +4,15 @@ include_once 'header.php';
 ?>
 
 <div id="intro" class="container-fluid">
-  <div class="col-sm-12 pl-4 pt-5 ml-3 text-center text-white">
-    <i class="fas fa-microphone fa-9x pr-5"></i><i class="fas fa-music fa-9x pr-5"></i><i class="fas fa-headphones fa-9x"></i>
+  <div class="col-sm-12 pl-4 ml-3 py-5 text-center text-white">
+    <p class="text-center py-5">
+      <img class="img-fluid" src="./img/logo.png" alt="logo ACS GROOVE" style="max-height: 350px;">
+    </p>
+    <!-- <i class="fas fa-microphone fa-5x pr-5"></i><i class="fas fa-music fa-5x pr-5"></i><i class="fas fa-headphones fa-5x"></i> -->
     <br>
-    <h1 class="font-weight-bold pt-5">ACS Groove</h1>
-    <h2>Le site qu'il est vachement bien !</h2>
-    <h2>Musicalement parlant !</h2>
+    <h2 class="font-weight-bold pt-3">ACS Groove</h2>
+    <h3>Le site qu'il est vachement bien !</h3>
+    <h3>Musicalement parlant !</h3>
   </div>
 </div>
 
@@ -102,9 +105,9 @@ include_once 'header.php';
             <?php
             $stmt = $db->query("SELECT Month(date) as Month, Year(date) as Year FROM artiste GROUP BY Month(date), Year(date) ORDER BY date DESC");
             while($row = $stmt->fetch()){
-              $monthName = date_fr("F", mktime(0, 0, 0, html($row['Month']), 10));
-              $year = date_fr(html($row['Year']));
-              echo "<option value='archives.php?month=" . html($row['Month']) . "&year=" . html($row['Year']) . "'>" . html($monthName) . "-" . html($row['Year']) . "</option>";
+              $monthName = date_fr("F", mktime(0, 0, 0, $row['Month'], 10));
+              $year = date_fr($row['Year']);
+              echo "<option value='archives.php?month=" . $row['Month'] . "&year=" . $row['Year'] . "'>" . $monthName . "-" . $row['Year'] . "</option>";
             }
             ?>
           </select>
@@ -124,7 +127,7 @@ include_once 'header.php';
             <?php
             $stmt = $db->query("SELECT genre FROM artiste GROUP BY genre ORDER BY genre DESC");
             while($row = $stmt->fetch()){
-              echo "<option value='archives2.php?genre=" . html($row['genre']) . "'>" . html($row['genre']) . "</option>";
+              echo "<option value='archives2.php?genre=" . $row['genre'] . "'>" . $row['genre'] . "</option>";
             }
             ?>
           </select>

@@ -25,10 +25,10 @@ $CHARSET = 'UTF-8';
 //-----------------------------------------------------
 //MAIL
 //-----------------------------------------------------
-$SITEMAIL = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxx';
-$SITEMAILPASSWORD = 'xxxxxxxxxxxxxxxxxxxxxxxxxx';
-$SMTPHOST = 'xxxxxxxxxxxxxxxxxxx';
-$SMTPPORT = 'xxxxx';
+$SITEMAIL = 'xxxxxxxxxxxxxxx';
+$SITEMAILPASSWORD = 'xxxxxxxxxxxxxxx';
+$SMTPHOST = 'xxxxxxxxxxxxxx';
+$SMTPPORT = 'xxxxxx';
 
 //-----------------------------------------------------
 //Website Settings
