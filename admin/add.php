@@ -73,13 +73,13 @@ if (isset($_POST['create'])) {
     ':genre' => $_POST['genre'],
     ':pays_origine' => $_POST['pays_origine'],
     ':presentation' => $_POST['presentation'],
-    'biographie' => $_POST['biographie'],
-    'discographie' => $_POST['discographie'],
-    'active' => $_POST['active'],
-    'label' => $_POST['label'],
-    'site_web' => $_POST['site_web'],
-    'image' => $_POST['image'],
-    'youtube' => $_POST['youtube']
+    ':biographie' => $_POST['biographie'],
+    ':discographie' => $_POST['discographie'],
+    ':active' => $_POST['active'],
+    ':label' => $_POST['label'],
+    ':site_web' => $_POST['site_web'],
+    ':image' => $_POST['image'],
+    ':youtube' => $_POST['youtube']
   ));
 
   $id = $db->lastInsertId();
@@ -117,42 +117,6 @@ include('menu.php');
 
 <div class="pt-3"><h2>Ajouter un artiste/groupe</h2></div>
 
-<!-- <form class="" action="" method="post">
-  <p>Nom de l'artiste/groupe :</p>
-  <input type="text" name="nom" value="" required>
-
-  <p>Genre :</p>
-  <input type="text" name="genre" value="" required>
-  <p>Pays d'origine :</p>
-  <input type="text" name="pays_origine" value="">
-  <p>Présentation</p>
-  <textarea name="presentation" rows="8" cols="80" required></textarea>
-
-  <p>Biographie :</p>
-  <textarea name="biographie" rows="8" cols="80" required></textarea>
-
-  <p>Discographie :</p>
-  <textarea name="discographie" rows="8" cols="80" required></textarea>
-
-  <p>Actif :</p>
-  <input type="text" name="active" value="" required>
-
-  <p>Label :</p>
-  <input type="text" name="label" value="" required>
-
-  <p>Site web :</p>
-  <input type="text" name="site_web" value="">
-
-  <p>Image :</p>
-  <input type="text" name="image" value="">
-
-  <p>Lien YouTube :</p>
-  <input type="text" name="youtube" value=""><br>
-
-  <input type="submit" name="create" value="Create">
-</form>
--->
-
 <form action='' method='post' enctype="multipart/form-data">
    <div class="form-group">
      <label for="nomartiste">Nom</label>
@@ -180,15 +144,15 @@ include('menu.php');
    </div>
    <div class="form-group">
      <label for="activeartiste">Activité</label>
-     <input type="text" name="active" class="form-control" id="activeartiste" value='<?php if(isset($error)){ echo $_POST['active']; } ?>' required>
+     <input type="text" name="active" class="form-control" id="activeartiste" value='<?php if(isset($error)){ echo $_POST['active']; } ?>'>
    </div>
    <div class="form-group">
      <label for="labelartiste">Label</label>
-     <input type="text" name="label" class="form-control" id="labelartiste" value='<?php if(isset($error)){ echo $_POST['label']; } ?>' required>
+     <input type="text" name="label" class="form-control" id="labelartiste" value='<?php if(isset($error)){ echo $_POST['label']; } ?>'>
    </div>
    <div class="form-group">
      <label for="siteartiste">Site web</label>
-     <input type="text" name="site_web" class="form-control" id="siteartiste" value='<?php if(isset($error)){ echo $_POST['site_web']; } ?>' required>
+     <input type="text" name="site_web" class="form-control" id="siteartiste" value='<?php if(isset($error)){ echo $_POST['site_web']; } ?>'>
    </div>
    <div class="form-group">
      <label for="imageartiste">Image <small>(images jpeg ou png seulement)</small></label>

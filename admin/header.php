@@ -50,13 +50,31 @@
     }
   </script>
 
-  <!-- Suppression de l'image de l'artiste/groupe -->
+  <!-- Suppression image artiste/groupe -->
   <script language="JavaScript" type="text/javascript">
   function delimage(id, title) {
     if (confirm("Etes-vous certain de vouloir supprimer l'image pour '" + title + "'")) {
       window.location.href = 'edit.php?delimage=' + id;
     }
   }
+  </script>
+
+  <!-- Mise à la corbeille fiche artiste / desartiste = désactiver artiste -->
+  <script language="JavaScript" type="text/javascript">
+    function desartiste(id, title) {
+      if (confirm("Etes-vous certain de vouloir mettre à la corbeille la fiche " + title + " ?")) {
+        window.location.href = 'index.php?desartiste=' + id
+      }
+    }
+  </script>
+
+  <!-- Restauration fiche artiste / restartiste = restaurer artiste-->
+  <script language="JavaScript" type="text/javascript">
+    function restartiste(id, title) {
+      if (confirm("Etes-vous certain de vouloir restaurer la fiche " + title + " ?")) {
+        window.location.href = 'index.php?restartiste=' + id
+      }
+    }
   </script>
 
   </head>
