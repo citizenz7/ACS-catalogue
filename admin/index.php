@@ -63,10 +63,12 @@ include_once 'header.php';
 
 	  <table class="table table-sm table-hover table-responsive-sm">
 	    <thead class="thead-light">
-            <tr>
+            <tr style="font-size:14px;">
               <th><a href="index.php?tri=id&ordre=desc"><i class="fas fa-sort-up"></i></a>Id<a href="index.php?tri=id&ordre=asc"><i class="fas fa-sort-down"></i></a></th>
-              <th width="60%"><a href="index.php?tri=nom&ordre=desc"><i class="fas fa-sort-up"></i></a>Nom<a href="index.php?tri=nom&ordre=asc"><i class="fas fa-sort-down"></i></a</th>
-              <th><a href="index.php?tri=dat&ordre=desc"><i class="fas fa-sort-up"></i></a>Date d'ajout<a href="index.php?tri=date&ordre=asc"><i class="fas fa-sort-down"></i></a</th>
+              <th width="40%"><a href="index.php?tri=nom&ordre=desc"><i class="fas fa-sort-up"></i></a>Nom<a href="index.php?tri=nom&ordre=asc"><i class="fas fa-sort-down"></i></a</th>
+              <th><a href="index.php?tri=date&ordre=desc"><i class="fas fa-sort-up"></i></a>Date d'ajout<a href="index.php?tri=date&ordre=asc"><i class="fas fa-sort-down"></i></a</th>
+              <th><a href="index.php?tri=dateMAJ&ordre=desc"><i class="fas fa-sort-up"></i></a>Date de MAJ<a href="index.php?tri=dateMAJ&ordre=asc"><i class="fas fa-sort-down"></i></a></th>
+              <th><a href="index.php?tri=bin&ordre=desc"><i class="fas fa-sort-up"></i></a>Corbeille<a href="index.php?tri=bin&ordre=asc"><i class="fas fa-sort-down"></i></a></th>
               <th class="text-center">Action</th>
 	    </tr>
 	    </thead>
@@ -101,7 +103,7 @@ include_once 'header.php';
               // -----------------------------------------------------------------
 
 						   // Protection du tri -----------------------------------------------
-						   if (!empty($_GET['tri']) && !in_array($_GET['tri'], array('id','nom', 'genre', 'pays', 'presentation', 'biographie', 'discographie', 'active', 'label', 'site_web', 'date', 'image', 'youtube'))) {
+						   if (!empty($_GET['tri']) && !in_array($_GET['tri'], array('id','nom', 'genre', 'pays', 'presentation', 'biographie', 'discographie', 'active', 'label', 'site_web', 'date', 'dateMAJ', 'image', 'youtube', 'bin'))) {
 							    header('Location: index.php');
 							    exit();
 						   }
@@ -118,10 +120,41 @@ include_once 'header.php';
                   echo '<td>'.$row['id'].'</td>';
                   echo '<td>'.$row['nom'].'</td>';
                   echo '<td class="small">'.date_fr('d-m-Y à H:i:s', strtotime(($row['date']))).'</td>';
+
+                  if(!empty($row['dateMAJ'])) {
+                    echo '<td class="small">'.date_fr('d-m-Y à H:i:s', strtotime(($row['dateMAJ']))).'</td>';
+                  }
+                  else {
+                    echo '<td></td>';
+                  }
                   ?>
                   <td class="text-center">
-                    <a class="btn btn-primary btn-sm tinytext" role="button" aria-pressed="true" title="Editer la fiche" href="edit.php?id=<?php echo $row['id'];?>">Editer</a> |
-                    <a class="btn btn-danger btn-sm tinytext" role="button" aria-pressed="true" title="Supprimer la fiche" href="javascript:delartiste('<?php echo $row['id'];?>','<?php echo $row['nom'];?>')">Suppr.</a>
+                    <?php
+                    if($row['bin'] == 1) {
+                      echo 'oui';
+                    }
+                    else {
+                      echo 'non';
+                    }
+                    ?>
+                  </td>
+                  <td class="text-center">
+                    <a class="btn btn-primary btn-sm tinytext" role="button" aria-pressed="true" title="Editer la fiche" href="edit.php?id=<?php echo $row['id'];?>"><i class="fas fa-edit"></i></a> |
+
+                    <?php
+                    if($row['bin'] == 0) {
+                    ?>
+                      <a class="btn btn-warning btn-sm tinytext" role="button" aria-pressed="true" title="Mettre à la corbeille" href="javascript:desartiste('<?php echo $row['id']; ?>','<?php echo $row['nom']; ?>')"><i class="fas fa-trash"></i></a> |
+                    <?php
+                    }
+                    else {
+                    ?>
+                      <a class="btn btn-success btn-sm tinytext" role="button" aria-pressed="true" title="Restaurer la fiche" href="javascript:restartiste('<?php echo $row['id']; ?>','<?php echo $row['nom']; ?>')"><i class="fas fa-plus-circle"></i></a> |
+                    <?php
+                    }
+                    ?>
+
+                    <a class="btn btn-danger btn-sm tinytext" role="button" aria-pressed="true" title="Supprimer la fiche" href="javascript:delartiste('<?php echo $row['id'];?>','<?php echo $row['nom'];?>')"><i class="fas fa-skull-crossbones"></i></a>
                   </td>
                   <?php
                   echo '</tr>';
@@ -135,13 +168,28 @@ include_once 'header.php';
 	    </tbody>
             </table>
 
-            <!-- Delete in SQL -->
             <?php
+            /* Suppression dans SQL */
             if(isset($_GET['delartiste'])) {
               $stmt = $db->prepare('DELETE FROM artiste WHERE id = :id') ;
               $stmt->execute(array(':id' => $_GET['delartiste']));
-
               header('Location: index.php?action=deleted');
+              exit;
+            }
+
+            /* Mettre à la corbeille fiche artiste */
+            if(isset($_GET['desartiste'])) {
+              $stmt = $db->prepare('UPDATE artiste SET bin = 1 WHERE id = :id');
+              $stmt->execute(array(':id' => $_GET['desartiste']));
+              header('Location: index.php?action=corbeille');
+              exit;
+            }
+
+            /* Restaurer fiche artiste */
+            if(isset($_GET['restartiste'])) {
+              $stmt = $db->prepare('UPDATE artiste SET bin = 0 WHERE id = :id');
+              $stmt->execute(array(':id' => $_GET['restartiste']));
+              header('Location: index.php?action=restaurer');
               exit;
             }
 
@@ -149,6 +197,28 @@ include_once 'header.php';
               echo '
               <div class="alert alert-info alert-dismissible fade show text-center font-weight-bold mt-4" role="alert">
                 Fiche supprimée !
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              ';
+            }
+
+            if(isset($_GET['action']) && $_GET['action'] == "corbeille"){
+              echo '
+              <div class="alert alert-info alert-dismissible fade show text-center font-weight-bold mt-4" role="alert">
+                Fiche mise à la corbeille !
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              ';
+            }
+
+            if(isset($_GET['action']) && $_GET['action'] == "restaurer"){
+              echo '
+              <div class="alert alert-info alert-dismissible fade show text-center font-weight-bold mt-4" role="alert">
+                Fiche restaurée !
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>

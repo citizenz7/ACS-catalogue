@@ -89,7 +89,7 @@ include_once 'header.php';
 			try {
 
 				//insert into database
-				$stmt = $db->prepare('UPDATE artiste SET nom = :nom, genre = :genre, pays_origine = :pays_origine, presentation = :presentation, biographie = :biographie, discographie = :discographie, active = :active, label = :label, site_web = :site_web, date = :date, youtube = :youtube
+				$stmt = $db->prepare('UPDATE artiste SET nom = :nom, genre = :genre, pays_origine = :pays_origine, presentation = :presentation, biographie = :biographie, discographie = :discographie, active = :active, label = :label, site_web = :site_web, dateMAJ = :dateMAJ, youtube = :youtube
           WHERE id = :id');
 				$stmt->execute(array(
 					':nom' => $nom,
@@ -101,7 +101,7 @@ include_once 'header.php';
           ':active' => $active,
           ':label' => $label,
           ':site_web' => $site_web,
-          ':date' => date('Y-m-d H:i:s'),
+          ':dateMAJ' => date('Y-m-d H:i:s'),
           ':youtube' => $youtube,
           ':id' => $id
 				));

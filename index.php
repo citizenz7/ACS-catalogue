@@ -33,11 +33,6 @@ include_once 'header.php';
 <!-- 5 derniers articles -->
 <div id="back2" class="row px-3 py-5">
 
-<!--<div class="col-sm-12 pl-4 pb-3 ml-3 text-center">
-      <h3 class="font-weight-bold">ACS Groove : le site qu'il est vachement bien ! ... Musicalement parlant !</h3>
-      <h4><i class="fas fa-headphones"></i> Les dernières fiches :</h4>
-    </div> -->
-
   <?php
     try {
       //pagination
@@ -49,7 +44,7 @@ include_once 'header.php';
       //On détermine le nombre total d'enregistrements
       $pages->set_total($stmt->rowCount());
 
-		  $stmt = $db->query('SELECT * FROM artiste ORDER BY id DESC ' . $pages->get_limit());
+		  $stmt = $db->query('SELECT * FROM artiste WHERE bin = 0 ORDER BY id DESC ' . $pages->get_limit());
       while($row = $stmt->fetch()) {
       ?>
 
