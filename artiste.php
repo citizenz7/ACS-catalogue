@@ -30,7 +30,12 @@ try {
   while($row = $stmt->fetch()) {
     echo '<div class="border px-3">';
 
-      echo '<p class="text-justify display-4 font-weight-bold">' . $row['nom'] . '</p>';
+      echo '<p class="text-justify display-4 font-weight-bold">' . $row['nom'];
+        //si c'est un admin connecté...
+        if($user->is_logged_in()){
+          echo '<a class="btn btn-info btn-sm tinytext mx-3 px-2" role="button" aria-pressed="true" title="Editer la fiche" href="./admin/edit.php?id=' . $row['id'] . '"><i class="fas fa-edit"></i></a>';
+        }
+      echo '</p>';
 
         echo '<ul class="list-group list-group-horizontal-sm text-muted my-3 text-center" style="font-size: 12px;">';
           echo '<li class="list-group-item"><b>Genre(s)</b><br>' . $row['genre'] . '</li>';
