@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-12 text-white px-3 pt-3 pb-5 text-center">
       <p class="lead">ACS Groove - 2020 - Nevers</p>
-      <i>Powered by the Awesome work of Oswald, Yacine, Olivier</i><br>
+      <i>Powered by the Awesome work of <a class="text-decoration-none text-white" href="https://github.com/AuseQ">Oswald</a>, <a class="text-decoration-none text-white" href="https://github.com/ya58">Yacine</a>, <a class="text-decoration-none text-white" href="https://github.com/citizenz7">Olivier</a></i><br>
       <a href="./contact.php" class="text-decoration-none text-white"><i class="fas fa-envelope"></i> Nous contacter</a>
     </div>
   </div>
