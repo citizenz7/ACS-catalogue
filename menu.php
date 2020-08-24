@@ -15,11 +15,8 @@ $id_aleatoire = $liste_id[array_rand($liste_id, 1)]['slug'];
         <a class="nav-link nav-font" href="./">Accueil<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-<<<<<<< HEAD
-        <a class="nav-link nav-font" href="artiste.php?id=<?php echo $id_aleatoire; ?>">&Agrave découvrir</a>
-=======
-        <a class="nav-link" href="<?php echo $id_aleatoire; ?>">&Agrave découvrir</a>
->>>>>>> 4b5416707ed9f13e5afe70020f1fc8e17d9b73df
+        <!-- <a class="nav-link nav-font" href="artiste.php?id=<?php echo $id_aleatoire; ?>">&Agrave découvrir</a> -->
+        <a class="nav-link nav-font" href="<?php echo $id_aleatoire; ?>">&Agrave découvrir</a>
       </li>
       <li class="nav-item">
         <a class="nav-link nav-font" href="contact.php">Contact</a>
