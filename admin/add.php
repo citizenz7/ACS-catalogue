@@ -67,9 +67,12 @@ if (isset($_POST['create'])) {
   if(!isset($error)){
 
   try {
-  $stmt = $db->prepare("INSERT INTO artiste (nom, genre, pays_origine, presentation, biographie, discographie, active, label, site_web, image, youtube) VALUES (:nom,:genre,:pays_origine,:presentation,:biographie,:discographie,:active,:label,:site_web,:image,:youtube)");
+  $slug = slug($nom);
+
+  $stmt = $db->prepare("INSERT INTO artiste (nom, slug, genre, pays_origine, presentation, biographie, discographie, active, label, site_web, image, youtube) VALUES (:nom,:slug,:genre,:pays_origine,:presentation,:biographie,:discographie,:active,:label,:site_web,:image,:youtube)");
   $stmt->execute(array(
     ':nom' => $_POST['nom'],
+    ':slug' => $slug,
     ':genre' => $_POST['genre'],
     ':pays_origine' => $_POST['pays_origine'],
     ':presentation' => $_POST['presentation'],

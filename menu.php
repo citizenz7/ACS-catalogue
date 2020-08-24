@@ -1,6 +1,6 @@
 <?php
-$liste_id = $db->query('SELECT id FROM artiste')->fetchAll();
-$id_aleatoire = $liste_id[array_rand($liste_id, 1)]['id'];
+$liste_id = $db->query('SELECT slug FROM artiste')->fetchAll();
+$id_aleatoire = $liste_id[array_rand($liste_id, 1)]['slug'];
 
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -15,7 +15,7 @@ $id_aleatoire = $liste_id[array_rand($liste_id, 1)]['id'];
         <a class="nav-link" href="./">Accueil<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="artiste.php?id=<?php echo $id_aleatoire; ?>">&Agrave découvrir</a>
+        <a class="nav-link" href="<?php echo $id_aleatoire; ?>">&Agrave découvrir</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="contact.php">Contact</a>
