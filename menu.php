@@ -12,17 +12,21 @@ $id_aleatoire = $liste_id[array_rand($liste_id, 1)]['slug'];
   <div class="navbar-collapse collapse w-100" id="navbarTogglerDemo02">
     <ul class="navbar-nav w-100 justify-content-center">
       <li class="nav-item">
-        <a class="nav-link" href="./">Accueil<span class="sr-only">(current)</span></a>
+        <a class="nav-link nav-font" href="./">Accueil<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
+<<<<<<< HEAD
+        <a class="nav-link nav-font" href="artiste.php?id=<?php echo $id_aleatoire; ?>">&Agrave découvrir</a>
+=======
         <a class="nav-link" href="<?php echo $id_aleatoire; ?>">&Agrave découvrir</a>
+>>>>>>> 4b5416707ed9f13e5afe70020f1fc8e17d9b73df
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="contact.php">Contact</a>
+        <a class="nav-link nav-font" href="contact.php">Contact</a>
       </li>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="admin/index.php">Admin</a>
+      <a class="nav-link nav-font" href="admin/index.php">Admin</a>
     </li>
     </ul>
     <form class="form-inline ml-auto w-100 justify-content-end" method="post" action="recherche.php">

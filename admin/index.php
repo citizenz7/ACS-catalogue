@@ -37,7 +37,7 @@ include_once 'header.php';
     <div class="row">
       <div class="col-sm-12 text-justify">
         <div class="pb-2 mt-3">
-          <div class="text-center mb-4 alert alert-primary" role="alert">Bienvenue <b><?php echo $_SESSION['username']; ?></b> ! Vous êtes connecté.</div>
+          <div class="text-center mt-5 mb-4 alert alert-primary" role="alert">Bienvenue <b><?php echo $_SESSION['username']; ?></b> ! Vous êtes connecté.</div>
 
 	  <?php
 	  if(isset($_GET['action']) && $_GET['action'] == "updated"){

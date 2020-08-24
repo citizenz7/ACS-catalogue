@@ -15,7 +15,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#505252",endCo
   font-size: 40px;
   text-shadow: 2px 2px 3px black;
 }
-.nav-link{
+.nav-font{
   font-family: 'MetalMania';
   font-size: 25px;
 }
@@ -178,4 +178,8 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#505252",endCo
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+}
+/* ___________FOOTER___________ */
+.github:hover{
+  text-decoration: underline;
 }
