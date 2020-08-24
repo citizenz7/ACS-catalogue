@@ -41,7 +41,7 @@ if(isset($_POST['requete']) && $_POST['requete'] != NULL) {
     while($rech = $req->fetch()) {
     ?>
       <tr>
-        <td><i class="fas fa-file-upload"></i> <a href="artiste.php?id=<?php echo html($rech['id']); ?>"><?php echo html($rech['nom']); ?></a></td>
+        <td><i class="fas fa-file-upload"></i> <a href="<?php echo html($rech['slug']); ?>"><?php echo html($rech['nom']); ?></a></td>
       </tr>
       <?php
     } // fin de la boucle while

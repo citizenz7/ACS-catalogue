@@ -7,7 +7,7 @@ include_once 'header.php';
 <div id="intro" class="container-fluid py-5">
   <div class="col-sm-12 py-5 text-center text-white">
     <p class="text-center pt-3">
-      <img class="img-fluid" src="./img/logo.png" alt="logo ACS GROOVE" style="max-height: 350px;">
+      <img class="img-fluid logo" src="./img/logo.png" alt="logo ACS GROOVE">
     </p>
     <!-- <i class="fas fa-microphone fa-5x pr-5"></i><i class="fas fa-music fa-5x pr-5"></i><i class="fas fa-headphones fa-5x"></i> -->
     <br>
@@ -159,7 +159,7 @@ include_once 'header.php';
             $stmt = $db->query("SELECT id,nom FROM artiste GROUP BY nom ORDER BY nom ASC");
             while($row = $stmt->fetch()){
               // echo "<option value='artiste.php?id=" . $row['id'] . "'>" . $row['nom'] . "</option>";
-              echo "<option value='" . $row['slug'] . "'>" . $row['nom'] . "</option>";
+              echo "<option value='archives3.php?nom=" . $row['nom'] . "'>" . $row['nom'] . "</option>";
             }
             ?>
           </select>

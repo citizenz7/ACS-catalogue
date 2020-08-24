@@ -2,6 +2,7 @@
     font-family: 'MetalMania';
     src: url('./font/metal-mania/MetalMania-Regular.ttf');
 }
+
 /* ___________NAVBAR____________ */
 .bg-dark{
 background: rgb(80,82,82);
@@ -179,6 +180,13 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#505252",endCo
   background-size: cover;
   background-attachment: fixed;
 }
+
+/* Logo */
+.logo {
+  max-height: 300px;
+  margin-top: 50px;
+}
+
 /* ___________FOOTER___________ */
 .github:hover{
   text-decoration: underline;

@@ -35,7 +35,7 @@ $stmt->execute(array(
 ));
 ?>
 
-<div class="container pt-3 pb-5">
+<div class="container mt-5 pb-5">
   <div class="row">
     <div class="col-sm-12 px-3 py-3">
 
@@ -43,8 +43,8 @@ $stmt->execute(array(
 		<?php
 		while($row = $stmt->fetch()){
 			echo '<div class="border my-3">';
-			   echo '<h3 class="px-3 py-3"><a href="artiste.php?id='.html($row['id']).'">'.html($row['nom']).'</a></h3>';
-			   echo '<p class="muted smalltext px-3">publié le '.date_fr('d-m-Y H:i:s', strtotime(html($row['date']))).' dans <em>' . html($row['genre']) . '</em></p>';
+			   echo '<h3 class="px-3 py-3"><a href="' . html($row['slug']) . '">' . html($row['nom']) . '</a></h3>';
+			   echo '<p class="muted smalltext px-3">publié le ' . date_fr('d-m-Y H:i:s', strtotime(html($row['date']))) . ' dans <em>' . html($row['genre']) . '</em></p>';
 
 				 $max = 1000;
          $chaine = $row['presentation'];
