@@ -97,17 +97,17 @@
     <div class="navbar-collapse collapse w-100" id="navbarTogglerDemo02">
       <ul class="navbar-nav w-100 justify-content-center">
         <li class="nav-item">
-          <a class="nav-link" href="../">Accueil<span class="sr-only">(current)</span></a>
+          <a class="nav-link nav-font" href="../">Accueil<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../artiste.php?id=<?php echo $id_aleatoire; ?>">&Agrave découvrir</a>
+          <a class="nav-link nav-font" href="../artiste.php?id=<?php echo $id_aleatoire; ?>">&Agrave découvrir</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../contact.php">Contact</a>
+          <a class="nav-link nav-font" href="../contact.php">Contact</a>
         </li>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="index.php">Admin</a>
+        <a class="nav-link nav-font" href="index.php">Admin</a>
       </li>
       </ul>
       <form class="form-inline ml-auto w-100 justify-content-end" method="post" action="../recherche.php">
