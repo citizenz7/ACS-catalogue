@@ -82,10 +82,12 @@
 <?php //include_once 'sidebar.php'; ?>
 
 <div class="container-fluid">
-
   <?php
-  $liste_id = $db->query('SELECT id FROM artiste')->fetchAll();
-  $id_aleatoire = $liste_id[array_rand($liste_id, 1)]['id'];
+  $link = $_SERVER['PHP_SELF'];
+  $link_array = explode('/',$link);
+
+  $liste_id = $db->query('SELECT slug FROM artiste')->fetchAll();
+  $id_aleatoire = $liste_id[array_rand($liste_id, 1)]['slug'];
 
   ?>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -97,20 +99,21 @@
     <div class="navbar-collapse collapse w-100" id="navbarTogglerDemo02">
       <ul class="navbar-nav w-100 justify-content-center">
         <li class="nav-item">
-          <a class="nav-link nav-font" href="../">Accueil<span class="sr-only">(current)</span></a>
+          <a class="nav-link nav-font" href="../index.php">Accueil<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-font" href="../artiste.php?id=<?php echo $id_aleatoire; ?>">&Agrave découvrir</a>
+          <!-- <a class="nav-link nav-font" href="artiste.php?id=<?php echo $id_aleatoire; ?>">&Agrave découvrir</a> -->
+          <a class="nav-link nav-font <?php if($page = end($link_array)=="artiste.php") echo'active'; ?>" href="../<?php echo $id_aleatoire; ?>">&Agrave découvrir</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-font" href="../contact.php">Contact</a>
+          <a class="nav-link nav-font <?php if($page = end($link_array)=="contact.php") echo'active'; ?>" href="../contact.php">Contact</a>
         </li>
       </li>
       <li class="nav-item">
-        <a class="nav-link nav-font" href="index.php">Admin</a>
+        <a class="nav-link nav-font <?php if($page = end($link_array)=="index.php") echo'active'; ?>" href="index.php">Admin</a>
       </li>
       </ul>
-      <form class="form-inline ml-auto w-100 justify-content-end" method="post" action="../recherche.php">
+      <form class="form-inline ml-auto w-100 justify-content-end" method="post" action="recherche.php">
         <input class="form-control mr-sm-2" type="search" name="requete" placeholder="Rechercher"aria-label="Search">
         <button class="btn my-2 my-sm-0 btn-light" type="submit">OK</button>
       </form>

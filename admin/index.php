@@ -8,7 +8,7 @@ if(!$user->is_logged_in()){
 }
 
 include_once 'header.php';
-
+echo $page = end($link_array);
 //Si on supprime l'image du projet...
 		if(isset($_GET['delartiste'])) {
 			$delimage = $_GET['delartiste'];
