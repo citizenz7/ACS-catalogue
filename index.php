@@ -61,7 +61,8 @@ include_once 'header.php';
           <?php
           }
           ?>
-          <div class="profile-name"><a class="text-decoration-none text-white" target="_blank" href="artiste.php?id=<?php echo html($row['id']); ?>"><?php echo html($row['nom']); ?></a></div>
+          <!-- <div class="profile-name"><a class="text-decoration-none text-white" target="_blank" href="artiste.php?id=<?php echo html($row['id']); ?>"><?php echo html($row['nom']); ?></a></div> -->
+          <div class="profile-name"><a class="text-decoration-none text-white" target="_blank" href="<?php echo html($row['slug']); ?>"><?php echo html($row['nom']); ?></a></div>
           <div class="profile-position"><?php echo $row['genre']; ?></div>
           <div class="profile-overview">
             <div class="profile-overview">
@@ -157,7 +158,8 @@ include_once 'header.php';
             <?php
             $stmt = $db->query("SELECT id,nom FROM artiste GROUP BY nom ORDER BY nom ASC");
             while($row = $stmt->fetch()){
-              echo "<option value='artiste.php?id=" . $row['id'] . "'>" . $row['nom'] . "</option>";
+              // echo "<option value='artiste.php?id=" . $row['id'] . "'>" . $row['nom'] . "</option>";
+              echo "<option value='" . $row['slug'] . "'>" . $row['nom'] . "</option>";
             }
             ?>
           </select>

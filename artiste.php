@@ -18,7 +18,7 @@ if($row['bin'] == 1) {
 
 else {
 
-$pagetitle = 'Artiste : ' . $row['nom'];
+$pagetitle = 'Artiste/Groupe : ' . $row['nom'];
 include_once 'header.php';
 ?>
 
@@ -26,7 +26,8 @@ include_once 'header.php';
 
 <?php
 try {
-  $stmt = $db->query("SELECT * FROM artiste WHERE bin = 0 AND id = $id");
+  $stmt = $db->prepare("SELECT * FROM artiste WHERE bin = 0 AND slug = :slug");
+  $stmt->execute(array(':slug' => $id));
   while($row = $stmt->fetch()) {
     echo '<div class="border px-3">';
 

@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteBase /Catalogue-PHP-MYSQL/
+
+RewriteCond %{REQUEST_FILENAME} !-d [NC]
+RewriteCond %{REQUEST_FILENAME} !-f [NC]
+RewriteRule ^(.*)$ artiste.php?id=$1 [QSA,L]
