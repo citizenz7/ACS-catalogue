@@ -186,9 +186,21 @@ echo $page = end($link_array);
             if(isset($_GET['restconcert'])) {
               $stmt = $db->prepare('UPDATE concert SET binconcert = 0 WHERE idconcert = :idconcert');
               $stmt->execute(array(':idconcert' => $_GET['restconcert']));
-              header('Location: indexconcert*.php?action=restaurer');
+              header('Location: indexconcert.php?action=restaurer');
               exit;
             }
+
+	    if(isset($_GET['action']) && $_GET['action'] == "added"){
+              echo '
+              <div class="alert alert-info alert-dismissible fade show text-center font-weight-bold mt-4" role="alert">
+                Fiche ajoutée !
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              ';
+            }
+
 
             if(isset($_GET['action']) && $_GET['action'] == "deleted"){
               echo '

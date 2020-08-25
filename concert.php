@@ -1,14 +1,14 @@
-<?php include_once './includes/config.php';
-$pagetitle = 'Nous contacter';
-include_once 'header.php'; ?>
-
-
+<?php
+include_once './includes/config.php';
+$pagetitle = 'Les concerts';
+include_once 'header.php';
+?>
 
 <div class="container">
 
   <div class="row">
     <div class="col-sm-12">
-      <h4 class="py-3 px-3"><i class="fas fa-headphones"></i> Les dernières fiches :</h4><hr>
+      <h4 class="py-3 px-3"><i class="fas fa-headphones"></i> Les derniers concerts :</h4><hr>
     </div>
   </div>
 
@@ -19,7 +19,7 @@ include_once 'header.php'; ?>
   <?php
     try {
       //pagination
-      $pages = new Paginator('9','art');
+      $pages = new Paginator('3','conc');
 
       //on collecte tous les enregistrements de la fonction
       $stmt = $db->query('SELECT idconcert FROM concert');
@@ -27,7 +27,7 @@ include_once 'header.php'; ?>
       //On détermine le nombre total d'enregistrements
       $pages->set_total($stmt->rowCount());
 
-		  $stmt = $db->query('SELECT * FROM concert ORDER BY idconcert DESC ' . $pages->get_limit());
+      $stmt = $db->query('SELECT * FROM concert WHERE binconcert = 0 ORDER BY idconcert DESC ' . $pages->get_limit());
       while($row = $stmt->fetch()) {
       ?>
 
@@ -44,18 +44,10 @@ include_once 'header.php'; ?>
           <?php
           }
           ?>
-          <!-- <div class="profile-name"><a class="text-decoration-none text-white" target="_blank" href="artiste.php?id=<?php echo html($row['id']); ?>"><?php echo html($row['nom']); ?></a></div> -->
-          <div class="profile-name"><a class="text-decoration-none text-white" target="_blank" href="artisteconcert.php?idconcert=<?php echo $row["idconcert"]; ?>"><?php echo html($row['nomconcert']); ?></a></div>
-          <div class="profile-position"><?php echo $row['lieuconcert']; ?></div>
-          <div class="profile-overview">
-            <div class="profile-overview">
-              <div class="row text-card">
-                <div class="col-xs-4">
-                  <?php echo $row['dateconcert']; ?>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="profile-name"><a class="text-decoration-none text-white" target="_blank" href="ficheconcert.php?id=<?php echo html($row['idconcert']); ?>"><?php echo html($row['nomconcert']); ?></a></div>
+	  <div class="profile-position text-white" style="font-size: 13px;">Date du concert : <?php echo date_fr('d-m-Y à H:i:s', strtotime(($row['dateconcert']))); ?></div>
+	  <div class="profile-overview text-white pl-4" style="font-size: 13px;">Lieu du concert : <?php echo $row['lieuconcert']; ?></div>
+
         </div>
       </div>
       <?php
@@ -79,19 +71,4 @@ include_once 'header.php'; ?>
 
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<?php
-include_once 'footer.php';
-?>
+<?php include "footer.php" ?>

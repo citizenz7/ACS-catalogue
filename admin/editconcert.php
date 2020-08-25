@@ -3,7 +3,7 @@ include_once '../includes/config.php';
 
 //if not logged in redirect to login page
 if(!$user->is_logged_in()){
-  header('Location: login.php');
+	header('Location: login.php');
 }
 
 include_once 'header.php';
@@ -24,9 +24,9 @@ include_once 'header.php';
 			//puis on supprime l'image dans la base
 			$stmt = $db->prepare('UPDATE concert SET imageconcert = NULL WHERE idconcert = :idconcert');
 			$stmt->execute(array(
-        ':idconcert' => $delimageconcert
-      ));
-			header('Location: editconcert.php?id='.$delimageconcert);
+        			':idconcert' => $delimageconcert
+      		));
+		header('Location: editconcert.php?idconcert='.$delimageconcert);
 		}
 ?>
 
@@ -40,14 +40,14 @@ include_once 'header.php';
 	//if form has been submitted process it
 	if(isset($_POST['submit'])){
 
-    // location where initial upload will be moved to
-    $target = $_FILES['image']['name'];
-    $path = '../img/concert/'.$target;
+		//collect form data
+                extract($_POST);
+
+    		// location where initial upload will be moved to
+   	 	$target = $idconcert . '-' . $_FILES['imageconcert']['name'];
+    		$path = '../img/concerts/'.$target;
 
 		$_POST = array_map( 'stripslashes', $_POST );
-
-		//collect form data
-		extract($_POST);
 
 		//very basic validation
 		if($idconcert ==''){
@@ -67,7 +67,7 @@ include_once 'header.php';
        // find thevtype of image
         switch ($_FILES["imageconcert"]["type"]) {
            case $_FILES["imageconcert"]["type"] == "image/jpeg":
-              move_uploaded_file($_FILES["image"]["tmp_name"], $path);
+              move_uploaded_file($_FILES["imageconcert"]["tmp_name"], $path);
               break;
            case $_FILES["imageconcert"]["type"] == "image/pjpeg":
               move_uploaded_file($_FILES["imageconcert"]["tmp_name"], $path);
@@ -91,19 +91,18 @@ include_once 'header.php';
         $slug = slug($nom);
 
 				//insert into database
-				$stmt = $db->prepare('UPDATE concert SET nomconcert = :nomconcert, lieuconcert = :lieuconcert, dateconcert = :dateconcert, imageconcert = :imageconcert, presentationconcert = :presentationconcert, descriptionconcert = :descriptionconcert
-          WHERE idconcert = :idconcert');
+				$stmt = $db->prepare('UPDATE concert SET nomconcert = :nomconcert, lieuconcert = :lieuconcert, dateconcert = :dateconcert, imageconcert = :imageconcert, presentationconcert = :presentationconcert, descriptionconcert = :descriptionconcert WHERE idconcert = :idconcert');
 				$stmt->execute(array(
 					':nomconcert' => $nomconcert,
 					':lieuconcert' => $lieuconcert,
-          ':dateconcert' => $dateconcert,
-          ':imageconcert' => $imageconcert,
-          ':presentationconcert' => $presentationconcert,
-          ':descriptionconcert' => $descritionconcert,
-          ':idconcert' => $idconcert
+          				':dateconcert' => $dateconcert,
+          				':imageconcert' => $imageconcert,
+          				':presentationconcert' => $presentationconcert,
+          				':descriptionconcert' => $descriptionconcert,
+          				':idconcert' => $idconcert
 				));
 
-        if(isset($_FILES['image']['name']) && !empty($_FILES['image']['name'])) {
+        if(isset($_FILES['imageconcert']['name']) && !empty($_FILES['imageconcert']['name'])) {
 	         $stmt = $db->prepare('UPDATE concert SET imageconcert = :imageconcert WHERE idconcert = :idconcert');
             $stmt->execute(array(
               ':imageconcert' => $target,
@@ -153,40 +152,40 @@ include_once 'header.php';
   <div class="pt-3"><h3>Editer la fiche du concert : "<?php echo $row['nomconcert']; ?>"</h3></div>
 
   <form action="" method="post" enctype="multipart/form-data">
-    <input type='hidden' name='id' value='<?php echo $row['idconcert'];?>'>
+    <input type='hidden' name='idconcert' value='<?php echo $row['idconcert'];?>'>
      <div class="form-group">
-       <label for="concertnom">Nom</label>
-       <input type="text" name="nomconcert" class="form-control" id="artistenom" value="<?php echo html($row['nomconcert']); ?>">
+       <label for="nomconcert">Nom</label>
+       <input type="text" name="nomconcert" class="form-control" id="nomconcert" value="<?php echo html($row['nomconcert']); ?>">
      </div>
      <div class="form-group">
-       <label for="artistegenre">lieu</label>
-       <input type="text" name="lieuconcert" class="form-control" id="artistegenre" value="<?php echo html($row['lieuconcert']); ?>">
+       <label for="lieuconcert">Lieu</label>
+       <input type="text" name="lieuconcert" class="form-control" id="lieuconcert" value="<?php echo html($row['lieuconcert']); ?>">
      </div>
      <div class="form-group">
-       <label for="artistepays">Date</label>
-       <input type="text" name="dateconcert" class="form-control" id="artistepays" value="<?php echo html($row['dateconcert']); ?>">
+       <label for="dateconcert">Date</label>
+       <input type="text" name="dateconcert" class="form-control" id="dateconcert" value="<?php echo html($row['dateconcert']); ?>">
      </div>
      <div class="form-group">
-       <label for="artistepres">Description</label>
-       <textarea name="descriptionconcert" class="form-control" id="artistepres" rows="10"><?php echo html($row['descriptionconcert']); ?></textarea>
+       <label for="descconcert">Description</label>
+       <textarea name="descriptionconcert" class="form-control" id="descconcert" rows="10"><?php echo html($row['descriptionconcert']); ?></textarea>
      </div>
      <div class="form-group">
-       <label for="artistebio">presentation</label>
-       <textarea name="presentationconcert" class="form-control" id="artistebio" rows="10"><?php echo html($row['presentationconcert']); ?></textarea>
+       <label for="Presconcert">Presentation</label>
+       <textarea name="presentationconcert" class="form-control" id="presconcert" rows="10"><?php echo html($row['presentationconcert']); ?></textarea>
      </div>
      <div class="form-group">
        <label for="image">Image <small>(images jpeg ou png seulement)</small></label><br>
        <?php
-       if(!empty($row['imageconcert']) && file_exists("../img/artistes/" . $row['imageconcert'])) {
-         echo '<img class="img-thumbnail" style="max-width: 150px;" src="../img/artistes/'.html($row['imageconcert']).'" alt="Image de présentation de '.html($row['nomconcert']).'" />';
+       if(!empty($row['imageconcert']) && file_exists("../img/concerts/" . $row['imageconcert'])) {
+         echo '<img class="img-thumbnail" style="max-width: 150px;" src="../img/concerts/'.html($row['imageconcert']).'" alt="Image de présentation de '.html($row['nomconcert']).'" />';
        ?>
        <a href="javascript:delimageconcert('<?php echo html($row['idconcert']);?>','<?php echo html($row['imageconcert']);?>')">Supprimer l'image</a>
        <?php
-				}
-				else {
-					echo 'Pas d\'image pour <i><b>'.html($row['nomconcert']) . '</b></i>';
-				}
-				?>
+		}
+		else {
+			echo 'Pas d\'image pour <i><b>'.html($row['nomconcert']) . '</b></i>';
+		}
+	?>
         <br>
         <input type="file" name="imageconcert" class="form-control">
       </div>
