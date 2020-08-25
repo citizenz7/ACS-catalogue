@@ -77,6 +77,43 @@
     }
   </script>
 
+  <!-- Suppression fiche concert -->
+  <script language="JavaScript" type="text/javascript">
+    function delconcert(id, title) {
+      if (confirm("Etes-vous certain de vouloir supprimer le concert " + title + " ?")) {
+        window.location.href = 'indexconcert.php?delconcert=' + id;
+      }
+    }
+  </script>
+
+  <!-- Suppression image artiste/groupe -->
+  <script language="JavaScript" type="text/javascript">
+  function delimageconcert(id, title) {
+    if (confirm("Etes-vous certain de vouloir supprimer l'image pour '" + title + "'")) {
+      window.location.href = 'editconcert.php?delimageconcert=' + id;
+    }
+  }
+  </script>
+
+  <!-- Mise à la corbeille fiche artiste / desartiste = désactiver artiste -->
+  <script language="JavaScript" type="text/javascript">
+    function desconcert(id, title) {
+      if (confirm("Etes-vous certain de vouloir mettre à la corbeille la fiche " + title + " ?")) {
+        window.location.href = 'indexconcert.php?desconcert=' + id
+      }
+    }
+  </script>
+
+  <!-- Restauration fiche artiste / restartiste = restaurer artiste-->
+  <script language="JavaScript" type="text/javascript">
+    function restconcert(id, title) {
+      if (confirm("Etes-vous certain de vouloir restaurer la fiche " + title + " ?")) {
+        window.location.href = 'indexconcert.php?restconcert=' + id
+      }
+    }
+  </script>
+
+
   </head>
   <body>
 <?php //include_once 'sidebar.php'; ?>
@@ -105,6 +142,10 @@
           <!-- <a class="nav-link nav-font" href="artiste.php?id=<?php echo $id_aleatoire; ?>">&Agrave découvrir</a> -->
           <a class="nav-link nav-font <?php if($page = end($link_array)=="artiste.php") echo'active'; ?>" href="../<?php echo $id_aleatoire; ?>">&Agrave découvrir</a>
         </li>
+        <a class="nav-link nav-font <?php if($page = end($link_array)=="concert.php") echo'active'; ?>" href="../concert.php">Concert</a>
+      </li>
+    </li>
+    <li class="nav-item">
         <li class="nav-item">
           <a class="nav-link nav-font <?php if($page = end($link_array)=="contact.php") echo'active'; ?>" href="../contact.php">Contact</a>
         </li>

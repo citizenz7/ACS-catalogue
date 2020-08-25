@@ -22,6 +22,9 @@ $id_aleatoire = $liste_id[array_rand($liste_id, 1)]['slug'];
         <a class="nav-link nav-font <?php if($page = end($link_array)=="artiste.php") echo'active'; ?>" href="<?php echo $id_aleatoire; ?>">&Agrave découvrir</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link nav-font <?php if($page = end($link_array)=="concert.php") echo'active'; ?>" href="concert.php">Concert</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link nav-font <?php if($page = end($link_array)=="contact.php") echo'active'; ?>" href="contact.php">Contact</a>
       </li>
     </li>
