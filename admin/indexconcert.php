@@ -65,11 +65,10 @@ echo $page = end($link_array);
 	  <table class="table table-sm table-hover table-responsive-sm">
 	    <thead class="thead-light">
             <tr style="font-size:14px;">
-              <th><a href="index.php?tri=id&ordre=desc"><i class="fas fa-sort-up"></i></a>Id<a href="index.php?tri=id&ordre=asc"><i class="fas fa-sort-down"></i></a></th>
-              <th width="40%"><a href="index.php?tri=nom&ordre=desc"><i class="fas fa-sort-up"></i></a>Nom<a href="index.php?tri=nom&ordre=asc"><i class="fas fa-sort-down"></i></a</th>
-              <th><a href="index.php?tri=date&ordre=desc"><i class="fas fa-sort-up"></i></a>Lieu du concert<a href="index.php?tri=date&ordre=asc"><i class="fas fa-sort-down"></i></a</th>
-              <th><a href="index.php?tri=dateMAJ&ordre=desc"><i class="fas fa-sort-up"></i></a>Date du concert<a href="index.php?tri=dateMAJ&ordre=asc"><i class="fas fa-sort-down"></i></a></th>
-              <th><a href="index.php?tri=bin&ordre=desc"><i class="fas fa-sort-up"></i></a>Corbeille<a href="index.php?tri=bin&ordre=asc"><i class="fas fa-sort-down"></i></a></th>
+              <th><a href="indexconcert.php?tri=idconcert&ordre=desc"><i class="fas fa-sort-up"></i></a>Id<a href="indexconcert.php?tri=idconcert&ordre=asc"><i class="fas fa-sort-down"></i></a></th>
+              <th width="40%"><a href="indexconcert.php?tri=nomconcert&ordre=desc"><i class="fas fa-sort-up"></i></a>Nom<a href="indexconcert.php?tri=nomconcert&ordre=asc"><i class="fas fa-sort-down"></i></a</th>
+              <th><a href="indexconcert.php?tri=dateconcert&ordre=desc"><i class="fas fa-sort-up"></i></a>Lieu du concert<a href="indexconcert.php?tri=dateconcert&ordre=asc"><i class="fas fa-sort-down"></i></a</th>
+              <th><a href="indexconcert.php?tri=binconcert&ordre=desc"><i class="fas fa-sort-up"></i></a>Corbeille<a href="indexconcert.php?tri=binconcert&ordre=asc"><i class="fas fa-sort-down"></i></a></th>
               <th class="text-center">Action</th>
 	    </tr>
 	    </thead>
