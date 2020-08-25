@@ -1,5 +1,3 @@
-
-
 <?php
 include_once '../includes/config.php';
 
@@ -84,10 +82,7 @@ echo $page = end($link_array);
 
                 //On détermine le nombre total d'enregistrements
                 $pages->set_total($stmt->rowCount());
-              }
-              catch(PDOException $e) {
-                echo $e->getMessage();
-              }
+
                 //On met en place le tri--------------------------------------------
 						    if(isset($_GET['tri'])) {
 							     $tri = html($_GET['tri']);
@@ -108,21 +103,28 @@ echo $page = end($link_array);
 
 						   // Protection du tri -----------------------------------------------
 						   if (!empty($_GET['tri']) && !in_array($_GET['tri'], array('idconcert','nomconcert', 'presentationconcert', 'descriptionconcert', 'dateconcert', 'imageconcert', 'binconcert'))) {
-							    header('Location: index.php');
+							    header('Location: indexconcert.php');
 							    exit();
 						   }
 						   if (!empty($_GET['ordre']) && !in_array($_GET['ordre'], array('asc','desc','ASC','DESC'))) {
-							    header('Location: index.php');
+							    header('Location: indexconcert.php');
 							    exit();
 						   }
 						  // -----------------------------------------------------------------
-              $stmt = $db->query('SELECT * FROM concert');
+              $stmt = $db->query('SELECT * FROM concert ORDER BY '.$tri.' '.$ordre.' ' .$pages->get_limit());
               while($row = $stmt->fetch()){
                 echo '<tr>';
                 echo '<td>'.$row['idconcert'].'</td>';
                 echo '<td>'.$row['nomconcert'].'</td>';
                 echo '<td>'.$row['lieuconcert'].'</td>';
                 echo '<td>'.$row['dateconcert'].'</td>';
+
+                // if(!empty($row['dateconcert'])) {
+                //   echo '<td class="small">'.date_fr('d-m-Y à H:i:s', strtotime(($row['dateconcert']))).'</td>';
+                // }
+                // else {
+                //   echo '<td></td>';
+                // }
                 ?>
                 <td class="text-center">
                   <?php
@@ -155,7 +157,10 @@ echo $page = end($link_array);
                 <?php
 
               }
-            //----------------------------------------------------------
+            }
+            catch(PDOException $e) {
+              echo $e->getMessage();
+            }
 	      ?>
 	    </tbody>
             </table>
