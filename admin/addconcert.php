@@ -13,6 +13,7 @@ include_once 'header.php';
   <div class="row">
     <div class="col-sm-12 px-3 mt-5 text-justify">
       <div class="pb-5">
+        <div class="text-center mt-5 mb-4 alert alert-primary" role="alert">Bienvenue <b><?php echo $_SESSION['username']; ?></b> ! Vous êtes connecté.</div>
 
 <?php
 if (isset($_POST['createconcert'])) {
@@ -73,11 +74,12 @@ if (isset($_POST['createconcert'])) {
 
   try {
 
-  $stmt = $db->prepare("INSERT INTO concert (nomconcert, lieuconcert, dateconcert, presentationconcert, descriptionconcert) VALUES (:nomconcert,:lieuconcert,:dateconcert,:presentationconcert,:descriptionconcert)");
+  $stmt = $db->prepare("INSERT INTO concert (nomconcert,lieuconcert,dateconcert,heureconcert,presentationconcert,descriptionconcert) VALUES (:nomconcert,:lieuconcert,:dateconcert,:heureconcert,:presentationconcert,:descriptionconcert)");
   $stmt->execute(array(
     ':nomconcert' => $_POST['nomconcert'],
     ':lieuconcert' => $_POST['lieuconcert'],
     ':dateconcert' => $_POST['dateconcert'],
+    ':heureconcert' => $_POST['heureconcert'],
     ':presentationconcert' => $_POST["presentationconcert"],
     ':descriptionconcert' => $_POST["descriptionconcert"]
   ));
@@ -119,16 +121,20 @@ include('menu.php');
 
 <form action='' method='post' enctype="multipart/form-data">
    <div class="form-group">
-     <label for="nomartiste">Nom</label>
-     <input type="text" name="nomconcert" class="form-control" id="nomartiste" value='<?php if(isset($error)){ echo $_POST['nomconcert']; } ?>' required>
+     <label for="nomconcert">Nom</label>
+     <input type="text" name="nomconcert" class="form-control" id="nomconcert" value='<?php if(isset($error)){ echo $_POST['nomconcert']; } ?>' required>
    </div>
    <div class="form-group">
      <label for="lieuconcert">lieu</label>
-     <input type="text" name="lieuconcert" class="form-control" id="genreartiste" value='<?php if(isset($error)){ echo $_POST['lieuconcert']; } ?>' required>
+     <input type="text" name="lieuconcert" class="form-control" id="lieuconcert" value='<?php if(isset($error)){ echo $_POST['lieuconcert']; } ?>' required>
    </div>
    <div class="form-group">
-     <label for="paysartiste">date</label>
-     <input type="text" name="dateconcert" class="form-control" id="paysartiste" value='<?php if(isset($error)){ echo $_POST['dateconcert']; } ?>' required>
+     <label for="dateconcert">date</label>
+     <input type="date" name="dateconcert" class="form-control" id="dateconcert" value='<?php if(isset($error)){ echo $_POST['dateconcert']; } ?>' required>
+   </div>
+   <div class="form-group">
+     <label for="heureconcert">Heure</label>
+     <input type="text" name="heureconcert" class="form-control" id="heureconcert" placeholder="00:00" value='<?php if(isset($error)){ echo $_POST['heureconcert']; } ?>' required>
    </div>
    <div class="form-group">
      <label for="presartiste">description</label>

@@ -14,7 +14,7 @@ catch(PDOException $e) {
 //
 /* Si la fiche est désactivée (bin == 1), on n'affiche rien et on renvoie vers la page index.php */
 if($row['binconcert'] == 1) {
-  header('Location: index.php');
+  header('Location: concert.php');
 }
 else {
 $pagetitle = 'Concert : ' . $row['nomconcert'];
@@ -37,10 +37,10 @@ try {
         }
       echo '</p>';
 
-        echo '<ul class="list-group list-group-horizontal-sm text-muted my-3 text-center" style="font-size: 12px;">';
+        echo '<ul class="list-group list-group-horizontal-sm text-muted my-3 text-center" style="font-size: 13px;">';
           echo '<li class="list-group-item"><b>Lieu</b><br>' . $row['lieuconcert'] . '</li>';
 
-          echo '<li class="list-group-item"><b>Concert le</b><br>' . date_fr('d-m-Y à H:i:s', strtotime(($row['dateconcert']))) . '</li>';
+          echo '<li class="list-group-item"><b>Concert le</b><br>' . date_fr('d-m-Y', strtotime(($row['dateconcert']))) . ' à ' . $row['heureconcert'] . '</li>';
 
         echo '</ul>';
 

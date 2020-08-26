@@ -35,17 +35,18 @@ include_once 'header.php';
       <div class="col-sm-12 px-3 mt-5 text-justify">
         <div class="pb-5">
 
+
 	<?php
 
 	//if form has been submitted process it
 	if(isset($_POST['submit'])){
 
 		//collect form data
-                extract($_POST);
+    extract($_POST);
 
-    		// location where initial upload will be moved to
-   	 	$target = $idconcert . '-' . $_FILES['imageconcert']['name'];
-    		$path = '../img/concerts/'.$target;
+    // location where initial upload will be moved to
+   	$target = $idconcert . '-' . $_FILES['imageconcert']['name'];
+		$path = '../img/concerts/'.$target;
 
 		$_POST = array_map( 'stripslashes', $_POST );
 
@@ -145,6 +146,8 @@ include_once 'header.php';
 
 	?>
 
+	<div class="text-center mt-5 mb-4 alert alert-primary" role="alert">Bienvenue <b><?php echo $_SESSION['username']; ?></b> ! Vous êtes connecté.</div>
+
   <?php
   include('menu.php');
   ?>
@@ -178,14 +181,12 @@ include_once 'header.php';
        <?php
        if(!empty($row['imageconcert']) && file_exists("../img/concerts/" . $row['imageconcert'])) {
          echo '<img class="img-thumbnail" style="max-width: 150px;" src="../img/concerts/'.html($row['imageconcert']).'" alt="Image de présentation de '.html($row['nomconcert']).'" />';
-       ?>
-       <a href="javascript:delimageconcert('<?php echo html($row['idconcert']);?>','<?php echo html($row['imageconcert']);?>')">Supprimer l'image</a>
-       <?php
-		}
-		else {
-			echo 'Pas d\'image pour <i><b>'.html($row['nomconcert']) . '</b></i>';
-		}
-	?>
+			 }
+			 else {
+				 echo 'Pas d\'image pour <i><b>'.html($row['nomconcert']) . '</b></i>';
+			 }
+			 ?>
+			 <a href="javascript:delimageconcert('<?php echo html($row['idconcert']);?>','<?php echo html($row['imageconcert']);?>')">Supprimer l'image</a>
         <br>
         <input type="file" name="imageconcert" class="form-control">
       </div>
