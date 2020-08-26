@@ -13,6 +13,7 @@ include_once 'header.php';
   <div class="row">
     <div class="col-sm-12 px-3 mt-5 text-justify">
       <div class="pb-5">
+        <div class="text-center mt-5 mb-4 alert alert-primary" role="alert">Bienvenue <b><?php echo $_SESSION['username']; ?></b> ! Vous êtes connecté.</div>
 
 <?php
 if (isset($_POST['create'])) {

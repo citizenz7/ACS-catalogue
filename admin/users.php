@@ -12,6 +12,7 @@ if(!$user->is_logged_in()){
   <div class="row">
     <div class="col-sm-12 mt-5 text-justify">
       <div class="pb-5">
+        <div class="text-center mt-4 mb-4 alert alert-primary" role="alert">Bienvenue <b><?php echo $_SESSION['username']; ?></b> ! Vous êtes connecté.</div>
 
       <?php include_once 'menu.php'; ?>
 

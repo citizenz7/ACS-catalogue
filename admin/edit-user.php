@@ -10,8 +10,9 @@ if(!$user->is_logged_in()){
 
 <div class="container pt-3 pb-3 mt-5">
   <div class="row">
-    <div class="col-sm-12 px-5 text-justify mt-5">
+    <div class="col-sm-12 px-3 text-justify mt-5">
       <div class="pb-5">
+        <div class="text-center mt-4 mb-4 alert alert-primary" role="alert">Bienvenue <b><?php echo $_SESSION['username']; ?></b> ! Vous êtes connecté.</div>
 
 	<?php
 

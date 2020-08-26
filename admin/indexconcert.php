@@ -65,8 +65,9 @@ echo $page = end($link_array);
             <tr style="font-size:14px;">
               <th><a href="indexconcert.php?tri=idconcert&ordre=desc"><i class="fas fa-sort-up"></i></a>Id<a href="indexconcert.php?tri=idconcert&ordre=asc"><i class="fas fa-sort-down"></i></a></th>
               <th width="40%"><a href="indexconcert.php?tri=nomconcert&ordre=desc"><i class="fas fa-sort-up"></i></a>Nom<a href="indexconcert.php?tri=nomconcert&ordre=asc"><i class="fas fa-sort-down"></i></a</th>
-              <th><a href="indexconcert.php?tri=lieuconcert&ordre=desc"><i class="fas fa-sort-up"></i></a>Lieu du concert<a href="indexconcert.php?tri=lieuconcert&ordre=asc"><i class="fas fa-sort-down"></i></a</th>
-              <th><a href="indexconcert.php?tri=dateconcert&ordre=desc"><i class="fas fa-sort-up"></i></a>Date du concert<a href="indexconcert.php?tri=dateconcert&ordre=asc"><i class="fas fa-sort-down"></i></a</th>
+              <th><a href="indexconcert.php?tri=lieuconcert&ordre=desc"><i class="fas fa-sort-up"></i></a>Lieu<a href="indexconcert.php?tri=lieuconcert&ordre=asc"><i class="fas fa-sort-down"></i></a</th>
+              <th><a href="indexconcert.php?tri=dateconcert&ordre=desc"><i class="fas fa-sort-up"></i></a>Date<a href="indexconcert.php?tri=dateconcert&ordre=asc"><i class="fas fa-sort-down"></i></a</th>
+              <th><a href="indexconcert.php?tri=heureconcert&ordre=desc"><i class="fas fa-sort-up"></i></a>Heure<a href="indexconcert.php?tri=heureconcert&ordre=asc"><i class="fas fa-sort-down"></i></a</th>
               <th><a href="indexconcert.php?tri=binconcert&ordre=desc"><i class="fas fa-sort-up"></i></a>Corbeille<a href="indexconcert.php?tri=binconcert&ordre=asc"><i class="fas fa-sort-down"></i></a></th>
               <th class="text-center">Action</th>
 	    </tr>
@@ -102,7 +103,7 @@ echo $page = end($link_array);
               //-----------------------------------------------------------------
 
 						   // Protection du tri -----------------------------------------------
-						   if (!empty($_GET['tri']) && !in_array($_GET['tri'], array('idconcert','nomconcert', 'presentationconcert', 'descriptionconcert', 'dateconcert', 'imageconcert', 'binconcert'))) {
+						   if (!empty($_GET['tri']) && !in_array($_GET['tri'], array('idconcert','nomconcert', 'presentationconcert', 'descriptionconcert', 'dateconcert', 'heureconcert', 'imageconcert', 'binconcert'))) {
 							    header('Location: indexconcert.php');
 							    exit();
 						   }
@@ -117,7 +118,8 @@ echo $page = end($link_array);
                 echo '<td>'.$row['idconcert'].'</td>';
                 echo '<td>'.$row['nomconcert'].'</td>';
                 echo '<td>'.$row['lieuconcert'].'</td>';
-                echo '<td>'.$row['dateconcert'].'</td>';
+                echo '<td>'.date_fr('d-m-Y', strtotime(($row['dateconcert']))).'</td>';
+                echo '<td>'.$row['heureconcert'].'</td>';
 
                 // if(!empty($row['dateconcert'])) {
                 //   echo '<td class="small">'.date_fr('d-m-Y à H:i:s', strtotime(($row['dateconcert']))).'</td>';
