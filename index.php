@@ -15,7 +15,7 @@ include_once 'header.php';
     <h2>L'annuaire musical neversois !</h2>
     <h4 onclick="play()">
       <audio id="audio" src="scripts/script-ressources/sample.mp3"></audio>
-      <i><i class="fas fa-music"></i> I like to move it, move it ! <i class="fas fa-music"></i>
+      <i class="moveit-size" style="font-size:1.2rem"><i class="fas fa-music"></i> I like to move it, move it ! <i class="fas fa-music"></i>
       </i>
     </h4>
   </div>

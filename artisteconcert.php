@@ -28,7 +28,7 @@ try {
   $stmt = $db->prepare("SELECT * FROM concert WHERE idconcert = :idconcert");
   $stmt->execute(array(':idconcert' => $idconcert));
   while($row = $stmt->fetch()) {
-    echo '<div class="border px-3 mt-4">';
+    echo '<div class="border px-3 mt-4" style="min-height: 20.5rem">';
 
       echo '<p class="text-justify display-4 font-weight-bold">' . $row['nomconcert'];
         //si c'est un admin connecté...

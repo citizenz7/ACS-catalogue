@@ -1,17 +1,20 @@
+<?php $link = $_SERVER['PHP_SELF'];
+$link_array = explode('/',$link); ?>
+
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="index.php"><i class="fas fa-users-cog"></i> Artistes/Groupes</a>
+      <li class="nav-item">
+        <a class="nav-link <?php if($page = end($link_array)=="index.php") echo'active'; ?>" href="index.php"><i class="fas fa-users-cog"></i> Artistes/Groupes</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="indexconcert.php"><i class="fas fa-users-cog"></i> Concerts</a>
+        <a class="nav-link <?php if($page = end($link_array)=="indexconcert.php") echo'active'; ?>" href="indexconcert.php"><i class="fas fa-users-cog"></i> Concerts</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="users.php"><i class="fas fa-users"></i> Utilisateurs</a>
+        <a class="nav-link <?php if($page = end($link_array)=="users.php") echo'active'; ?>" href="users.php"><i class="fas fa-users"></i> Utilisateurs</a>
       </li>
     </ul>
 	<?php

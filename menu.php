@@ -29,7 +29,7 @@ $id_aleatoire = $liste_id[array_rand($liste_id, 1)]['slug'];
       </li>
     </li>
     <li class="nav-item">
-      <a class="nav-link nav-font <?php if($page = end($link_array)=="admin/index.php") echo'active'; ?>" href="admin/index.php">Admin</a>
+      <a class="nav-link nav-font <?php if($page = end($link_array)=="admin/index.php") echo'active';?>" href="admin/index.php">Admin</a>
     </li>
     </ul>
     <form class="form-inline ml-auto w-100 justify-content-end" method="post" action="recherche.php">
