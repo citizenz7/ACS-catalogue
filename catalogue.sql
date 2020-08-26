@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.5deb2
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost:3306
--- Généré le : mar. 25 août 2020 à 18:16
--- Version du serveur :  10.3.22-MariaDB-1ubuntu1
--- Version de PHP : 7.4.3
+-- Hôte : 127.0.0.1:3306
+-- Généré le :  mer. 26 août 2020 à 08:24
+-- Version du serveur :  10.4.10-MariaDB
+-- Version de PHP :  7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `catalogue`
+-- Base de données :  `acscatalogue`
 --
 
 -- --------------------------------------------------------
@@ -28,8 +28,9 @@ SET time_zone = "+00:00";
 -- Structure de la table `artiste`
 --
 
-CREATE TABLE `artiste` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `artiste`;
+CREATE TABLE IF NOT EXISTS `artiste` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) NOT NULL,
   `slug` varchar(255) NOT NULL,
   `genre` varchar(255) NOT NULL,
@@ -44,8 +45,9 @@ CREATE TABLE `artiste` (
   `dateMAJ` datetime DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
   `youtube` varchar(255) DEFAULT NULL,
-  `bin` int(1) NOT NULL DEFAULT 0
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+  `bin` int(1) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `artiste`
@@ -100,27 +102,30 @@ INSERT INTO `artiste` (`id`, `nom`, `slug`, `genre`, `pays_origine`, `presentati
 -- Structure de la table `concert`
 --
 
-CREATE TABLE `concert` (
-  `idconcert` int(11) NOT NULL,
+DROP TABLE IF EXISTS `concert`;
+CREATE TABLE IF NOT EXISTS `concert` (
+  `idconcert` int(11) NOT NULL AUTO_INCREMENT,
   `nomconcert` varchar(255) NOT NULL,
   `lieuconcert` text NOT NULL,
-  `dateconcert` datetime NOT NULL,
+  `dateconcert` varchar(10) NOT NULL,
+  `heureconcert` varchar(5) NOT NULL,
   `imageconcert` varchar(255) DEFAULT NULL,
   `presentationconcert` text NOT NULL,
   `descriptionconcert` text NOT NULL,
-  `binconcert` int(1) NOT NULL DEFAULT 0
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `binconcert` int(1) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`idconcert`)
+) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `concert`
 --
 
-INSERT INTO `concert` (`idconcert`, `nomconcert`, `lieuconcert`, `dateconcert`, `imageconcert`, `presentationconcert`, `descriptionconcert`, `binconcert`) VALUES
-(11, 'Iron Maiden', 'Nevers', '2020-09-11 21:00:00', '11-Iron_Maiden.jpg', '<p>lalalalalalalal</p>', '<p>Iron maiden</p>', 0),
-(12, 'Arch Enemy', 'Nevers', '2020-09-11 21:00:00', '12-archenemy.jpg', '<p>vbnvvb</p>', '<p>vbvcbvnvbnvb</p>', 0),
-(13, 'Unleash the Archers', 'Nevers', '2020-09-29 21:00:00', '13-unleash-the-archers.jpg', '<p>Le groupe sera en concert &agrave; Nevers &agrave; La Maison le 29 septembre prochain &agrave; 21h00.</p>\r\n<p>Quel &eacute;v&egrave;nement !</p>', '<p><strong>Unleash the Archers</strong> est un <a title=\"Groupe musical\" href=\"https://fr.wikipedia.org/wiki/Groupe_musical\">groupe</a> de <a title=\"Heavy metal\" href=\"https://fr.wikipedia.org/wiki/Heavy_metal\">heavy metal</a> <a title=\"Canada\" href=\"https://fr.wikipedia.org/wiki/Canada\">canadien</a>, form&eacute; &agrave; <a title=\"Victoria (Colombie-Britannique)\" href=\"https://fr.wikipedia.org/wiki/Victoria_(Colombie-Britannique)\">Victoria</a> et bas&eacute; &agrave; <a title=\"Vancouver\" href=\"https://fr.wikipedia.org/wiki/Vancouver\">Vancouver</a>. Il est actuellement sign&eacute; au label <a title=\"Napalm Records\" href=\"https://fr.wikipedia.org/wiki/Napalm_Records\">Napalm Records</a>. Leur style musical est un m&eacute;lange de <a title=\"Heavy metal traditionnel\" href=\"https://fr.wikipedia.org/wiki/Heavy_metal_traditionnel\">heavy metal traditionnel</a>, de <a title=\"Power metal\" href=\"https://fr.wikipedia.org/wiki/Power_metal\">power metal</a> et de <a class=\"mw-redirect\" title=\"Metal m&eacute;lodique\" href=\"https://fr.wikipedia.org/wiki/Metal_m%C3%A9lodique\">metal m&eacute;lodique</a>.</p>', 0),
-(14, 'Metallica', 'Nevers', '2020-12-11 21:00:00', '14-metallica.jpg', '<p><strong>Metallica</strong> est un <a class=\"mw-redirect\" title=\"Groupe de musique\" href=\"https://fr.wikipedia.org/wiki/Groupe_de_musique\">groupe</a> de <a title=\"Thrash metal\" href=\"https://fr.wikipedia.org/wiki/Thrash_metal\">thrash metal</a> <a title=\"&Eacute;tats-Unis\" href=\"https://fr.wikipedia.org/wiki/%C3%89tats-Unis\">am&eacute;ricain</a> originaire de <a title=\"Californie\" href=\"https://fr.wikipedia.org/wiki/Californie\">Californie</a>. Form&eacute; &agrave; <a title=\"Los Angeles\" href=\"https://fr.wikipedia.org/wiki/Los_Angeles\">Los Angeles</a> en <a title=\"1981 en musique\" href=\"https://fr.wikipedia.org/wiki/1981_en_musique\">1981</a>, le groupe est compos&eacute; actuellement de deux de ses membres fondateurs, <a title=\"James Hetfield\" href=\"https://fr.wikipedia.org/wiki/James_Hetfield\">James Hetfield</a> (chant, guitare rythmique) et <a title=\"Lars Ulrich\" href=\"https://fr.wikipedia.org/wiki/Lars_Ulrich\">Lars Ulrich</a> (batterie), ainsi que du guitariste <a title=\"Kirk Hammett\" href=\"https://fr.wikipedia.org/wiki/Kirk_Hammett\">Kirk Hammett</a> (arriv&eacute; en 1983) et du bassiste <a title=\"Robert Trujillo\" href=\"https://fr.wikipedia.org/wiki/Robert_Trujillo\">Robert Trujillo</a>, qui rejoindra le groupe en 2003. Les pr&eacute;c&eacute;dents membres du groupe incluent <a title=\"Dave Mustaine\" href=\"https://fr.wikipedia.org/wiki/Dave_Mustaine\">Dave Mustaine</a> (apr&egrave;s son exclusion, membre fondateur de <a title=\"Megadeth\" href=\"https://fr.wikipedia.org/wiki/Megadeth\">Megadeth</a>), les <a title=\"Bassiste\" href=\"https://fr.wikipedia.org/wiki/Bassiste\">bassistes</a> <a title=\"Ron McGovney\" href=\"https://fr.wikipedia.org/wiki/Ron_McGovney\">Ron McGovney</a> (uniquement pour les d&eacute;mos), <a title=\"Cliff Burton\" href=\"https://fr.wikipedia.org/wiki/Cliff_Burton\">Cliff Burton</a> (pour les trois premiers albums&nbsp;; d&eacute;c&eacute;d&eacute; en 1986) et <a title=\"Jason Newsted\" href=\"https://fr.wikipedia.org/wiki/Jason_Newsted\">Jason Newsted</a> (prenant la suite de Burton et remplac&eacute; en 2003 par Trujillo). Le groupe a longtemps collabor&eacute; avec le producteur <a title=\"Bob Rock\" href=\"https://fr.wikipedia.org/wiki/Bob_Rock\">Bob Rock</a>, qui a produit tous leurs albums de <a title=\"1990 en musique\" href=\"https://fr.wikipedia.org/wiki/1990_en_musique\">1990</a> &agrave; <a title=\"2003 en musique\" href=\"https://fr.wikipedia.org/wiki/2003_en_musique\">2003</a> et est devenu temporairement le bassiste du groupe, entre le d&eacute;part de Newsted et l\'arriv&eacute;e de Trujillo. Le groupe se forme au d&eacute;but des <a title=\"Ann&eacute;es 1980\" href=\"https://fr.wikipedia.org/wiki/Ann%C3%A9es_1980\">ann&eacute;es 1980</a> lorsque Hetfield se rend &agrave; une annonce post&eacute;e dans un journal local par le batteur Lars Ulrich.</p>', '<p><strong>Metallica</strong> est un <a class=\"mw-redirect\" title=\"Groupe de musique\" href=\"https://fr.wikipedia.org/wiki/Groupe_de_musique\">groupe</a> de <a title=\"Thrash metal\" href=\"https://fr.wikipedia.org/wiki/Thrash_metal\">thrash metal</a> <a title=\"&Eacute;tats-Unis\" href=\"https://fr.wikipedia.org/wiki/%C3%89tats-Unis\">am&eacute;ricain</a> originaire de <a title=\"Californie\" href=\"https://fr.wikipedia.org/wiki/Californie\">Californie</a>. Form&eacute; &agrave; <a title=\"Los Angeles\" href=\"https://fr.wikipedia.org/wiki/Los_Angeles\">Los Angeles</a> en <a title=\"1981 en musique\" href=\"https://fr.wikipedia.org/wiki/1981_en_musique\">1981</a>, le groupe est compos&eacute; actuellement de deux de ses membres fondateurs, <a title=\"James Hetfield\" href=\"https://fr.wikipedia.org/wiki/James_Hetfield\">James Hetfield</a> (chant, guitare rythmique) et <a title=\"Lars Ulrich\" href=\"https://fr.wikipedia.org/wiki/Lars_Ulrich\">Lars Ulrich</a> (batterie), ainsi que du guitariste <a title=\"Kirk Hammett\" href=\"https://fr.wikipedia.org/wiki/Kirk_Hammett\">Kirk Hammett</a> (arriv&eacute; en 1983) et du bassiste <a title=\"Robert Trujillo\" href=\"https://fr.wikipedia.org/wiki/Robert_Trujillo\">Robert Trujillo</a>, qui rejoindra le groupe en 2003. Les pr&eacute;c&eacute;dents membres du groupe incluent <a title=\"Dave Mustaine\" href=\"https://fr.wikipedia.org/wiki/Dave_Mustaine\">Dave Mustaine</a> (apr&egrave;s son exclusion, membre fondateur de <a title=\"Megadeth\" href=\"https://fr.wikipedia.org/wiki/Megadeth\">Megadeth</a>), les <a title=\"Bassiste\" href=\"https://fr.wikipedia.org/wiki/Bassiste\">bassistes</a> <a title=\"Ron McGovney\" href=\"https://fr.wikipedia.org/wiki/Ron_McGovney\">Ron McGovney</a> (uniquement pour les d&eacute;mos), <a title=\"Cliff Burton\" href=\"https://fr.wikipedia.org/wiki/Cliff_Burton\">Cliff Burton</a> (pour les trois premiers albums&nbsp;; d&eacute;c&eacute;d&eacute; en 1986) et <a title=\"Jason Newsted\" href=\"https://fr.wikipedia.org/wiki/Jason_Newsted\">Jason Newsted</a> (prenant la suite de Burton et remplac&eacute; en 2003 par Trujillo). Le groupe a longtemps collabor&eacute; avec le producteur <a title=\"Bob Rock\" href=\"https://fr.wikipedia.org/wiki/Bob_Rock\">Bob Rock</a>, qui a produit tous leurs albums de <a title=\"1990 en musique\" href=\"https://fr.wikipedia.org/wiki/1990_en_musique\">1990</a> &agrave; <a title=\"2003 en musique\" href=\"https://fr.wikipedia.org/wiki/2003_en_musique\">2003</a> et est devenu temporairement le bassiste du groupe, entre le d&eacute;part de Newsted et l\'arriv&eacute;e de Trujillo. Le groupe se forme au d&eacute;but des <a title=\"Ann&eacute;es 1980\" href=\"https://fr.wikipedia.org/wiki/Ann%C3%A9es_1980\">ann&eacute;es 1980</a> lorsque Hetfield se rend &agrave; une annonce post&eacute;e dans un journal local par le batteur Lars Ulrich.</p>', 0),
-(15, 'AC/DC', 'Nevers', '2020-12-30 21:00:00', '15-acdc.jpg', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>', '<p>AC/DC est un <a class=\"mw-redirect\" title=\"Groupe de musique\" href=\"https://fr.wikipedia.org/wiki/Groupe_de_musique\">groupe</a> de <a title=\"Hard rock\" href=\"https://fr.wikipedia.org/wiki/Hard_rock\">hard rock</a> <a class=\"mw-redirect\" title=\"Australien\" href=\"https://fr.wikipedia.org/wiki/Australien\">australien</a>, originaire de <a title=\"Sydney\" href=\"https://fr.wikipedia.org/wiki/Sydney\">Sydney</a>. Il est form&eacute; en <a title=\"1973 en musique\" href=\"https://fr.wikipedia.org/wiki/1973_en_musique\">1973</a> par les fr&egrave;res <a title=\"&Eacute;cosse\" href=\"https://fr.wikipedia.org/wiki/%C3%89cosse\">&eacute;cossais</a> <a title=\"Angus Young\" href=\"https://fr.wikipedia.org/wiki/Angus_Young\">Angus</a> et <a title=\"Malcolm Young\" href=\"https://fr.wikipedia.org/wiki/Malcolm_Young\">Malcolm Young</a>. Bien que class&eacute; dans le <a title=\"Hard rock\" href=\"https://fr.wikipedia.org/wiki/Hard_rock\">hard rock</a> et consid&eacute;r&eacute; comme un pionnier de ce genre musical ainsi que parfois du <a title=\"Heavy metal\" href=\"https://fr.wikipedia.org/wiki/Heavy_metal\">heavy metal</a><sup id=\"cite_ref-2\" class=\"reference\"><a href=\"https://fr.wikipedia.org/wiki/AC/DC#cite_note-2\">2</a></sup><sup class=\"reference cite_virgule\">,</sup><sup id=\"cite_ref-3\" class=\"reference\"><a href=\"https://fr.wikipedia.org/wiki/AC/DC#cite_note-3\">3</a></sup>, les membres du groupe ont toujours qualifi&eacute; leur musique de <span class=\"citation\">&laquo;&nbsp;<a title=\"Rock \'n\' roll\" href=\"https://fr.wikipedia.org/wiki/Rock_%27n%27_roll\">rock \'n\' roll</a>&nbsp;&raquo;</span><sup id=\"cite_ref-Bonfire_4-0\" class=\"reference\"><a href=\"https://fr.wikipedia.org/wiki/AC/DC#cite_note-Bonfire-4\">4</a></sup>. Elle pourrait aussi &ecirc;tre cat&eacute;goris&eacute;e comme <em>hard blues</em>.</p>', 0);
+INSERT INTO `concert` (`idconcert`, `nomconcert`, `lieuconcert`, `dateconcert`, `heureconcert`, `imageconcert`, `presentationconcert`, `descriptionconcert`, `binconcert`) VALUES
+(17, 'Nightwish', 'Nevers, La Maison', '2020-10-23', '21:00', '17-nightwish.jpg', '<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>\r\n<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>', 0),
+(18, 'Iron Maiden', 'Nevers, La Maison', '2020-10-15', '21:00', '18-Iron_Maiden.jpg', '<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>', '<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>', 0),
+(19, 'Unleach the Archers', 'Nevers, La Maison', '2020-12-10', '21:00', '19-unleash-the-archers.jpg', '<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>', '<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>', 0),
+(20, 'Amaranthe', 'Nevers, La Maison', '2020-10-30', '21:00', '20-amaranthe.jpg', '<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>', '<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>', 0),
+(21, 'Within Temptation', 'Nevers, La Maison', '2021-02-11', '21:00', '21-within-temptation.jpg', '<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>', '<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>', 0);
 
 -- --------------------------------------------------------
 
@@ -128,12 +133,14 @@ INSERT INTO `concert` (`idconcert`, `nomconcert`, `lieuconcert`, `dateconcert`, 
 -- Structure de la table `membres`
 --
 
-CREATE TABLE `membres` (
-  `MemberID` int(11) NOT NULL,
+DROP TABLE IF EXISTS `membres`;
+CREATE TABLE IF NOT EXISTS `membres` (
+  `MemberID` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+  `email` varchar(255) NOT NULL,
+  PRIMARY KEY (`MemberID`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `membres`
@@ -143,50 +150,6 @@ INSERT INTO `membres` (`MemberID`, `username`, `password`, `email`) VALUES
 (1, 'citizenz7', '$2y$10$g13tR5lU7MeRBp.HxvnVPOskDZwcqykkAFpPkw8Z7ldd3uM53VWFW', 'o.prieur@codeur.online'),
 (2, 'oswald', '$2y$10$vtB37xTfiTgw1.UuX.hfPO7fu3a66eY9Fcpnit7fO0waIuMuZ9kR.', 'o.quevillart.codeur.online'),
 (3, 'yacine', '$2y$10$.Q00/LycRT8anGlaqY1KtOFy4XzSzAGr0i1vNdUUayY3NbPIs1uV2', 'y.sbai@codeur.online');
-
---
--- Index pour les tables déchargées
---
-
---
--- Index pour la table `artiste`
---
-ALTER TABLE `artiste`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `concert`
---
-ALTER TABLE `concert`
-  ADD PRIMARY KEY (`idconcert`);
-
---
--- Index pour la table `membres`
---
-ALTER TABLE `membres`
-  ADD PRIMARY KEY (`MemberID`);
-
---
--- AUTO_INCREMENT pour les tables déchargées
---
-
---
--- AUTO_INCREMENT pour la table `artiste`
---
-ALTER TABLE `artiste`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
-
---
--- AUTO_INCREMENT pour la table `concert`
---
-ALTER TABLE `concert`
-  MODIFY `idconcert` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
---
--- AUTO_INCREMENT pour la table `membres`
---
-ALTER TABLE `membres`
-  MODIFY `MemberID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
