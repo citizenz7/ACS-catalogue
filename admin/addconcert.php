@@ -20,7 +20,7 @@ if (isset($_POST['createconcert'])) {
   //collect form data
   extract($_POST);
 
-  $req = $db->query("SHOW TABLE STATUS FROM catalogue LIKE 'concert' ");
+  $req = $db->query("SHOW TABLE STATUS FROM acscatalogue LIKE 'concert' ");
   $donnees = $req->fetch();
   $idimageconcert = $donnees['Auto_increment'];
 

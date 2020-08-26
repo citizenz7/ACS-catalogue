@@ -44,7 +44,7 @@ include_once 'header.php';
           <?php
           }
           ?>
-          <div class="profile-name"><a class="text-decoration-none text-white" target="_blank" href="ficheconcert.php?id=<?php echo html($row['idconcert']); ?>"><?php echo html($row['nomconcert']); ?></a></div>
+          <div class="profile-name"><a class="text-decoration-none text-white" target="_blank" href="artisteconcert.php?idconcert=<?php echo html($row['idconcert']); ?>"><?php echo html($row['nomconcert']); ?></a></div>
 	  <div class="profile-position text-white" style="font-size: 13px;">Date du concert : <?php echo date_fr('d-m-Y à H:i:s', strtotime(($row['dateconcert']))); ?></div>
 	  <div class="profile-overview text-white pl-4" style="font-size: 13px;">Lieu du concert : <?php echo $row['lieuconcert']; ?></div>
 

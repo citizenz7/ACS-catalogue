@@ -1,9 +1,10 @@
 <?php
 include_once './includes/config.php';
+
 $idconcert = html($_GET['idconcert']);
-include_once 'header.php';
+
 try {
-  $stmt = $db->prepare('SELECT nomconcert FROM concert WHERE idconcert = :idconcert') ;
+  $stmt = $db->prepare('SELECT nomconcert,binconcert FROM concert WHERE idconcert = :idconcert') ;
   $stmt->execute(array(':idconcert' => $idconcert));
   $row = $stmt->fetch();
 }
@@ -11,15 +12,13 @@ catch(PDOException $e) {
     echo $e->getMessage();
 }
 //
-// /* Si la fiche est désactivée (bin == 1), on n'affiche rien et on renvoie vers la page index.php */
-// if($row['bin'] == 1) {
-//   header('Location: index.php');
-// }
-//
-// else {
-//
-// $pagetitle = 'Artiste/Groupe : ' . $row['nom'];
-// include_once 'header.php';
+/* Si la fiche est désactivée (bin == 1), on n'affiche rien et on renvoie vers la page index.php */
+if($row['binconcert'] == 1) {
+  header('Location: index.php');
+}
+else {
+$pagetitle = 'Concert : ' . $row['nomconcert'];
+include_once 'header.php';
 ?>
 
 <div class="container pt-5 mt-5 mb-5">
@@ -29,12 +28,12 @@ try {
   $stmt = $db->prepare("SELECT * FROM concert WHERE idconcert = :idconcert");
   $stmt->execute(array(':idconcert' => $idconcert));
   while($row = $stmt->fetch()) {
-    echo '<div class="border px-3">';
+    echo '<div class="border px-3 mt-4">';
 
       echo '<p class="text-justify display-4 font-weight-bold">' . $row['nomconcert'];
         //si c'est un admin connecté...
         if($user->is_logged_in()){
-          echo '<a class="btn btn-info btn-sm tinytext mx-3 px-2" role="button" aria-pressed="true" title="Editer la fiche" href="./admin/edit.php?id=' . $row['idconcert'] . '"><i class="fas fa-edit"></i></a>';
+          echo '<a class="btn btn-info btn-sm tinytext mx-3 px-2" role="button" aria-pressed="true" title="Editer la fiche" href="./admin/editconcert.php?idconcert=' . $row['idconcert'] . '"><i class="fas fa-edit"></i></a>';
         }
       echo '</p>';
 
@@ -49,7 +48,7 @@ try {
           echo '<p class="text-justify"><img class="img-fluid float-left mr-3 mb-3" src="./img/nophoto.png" alt="' . $row['nomconcert'] . '">' . $row['nomconcert'] . '</p>';
         }
         else {
-          echo '<p class="text-justify"><img style="max-width:300px;" class="img-fluid float-left mr-3 mb-3" src="./img/concerts/' . $row['imageconcert'] . '" alt="' . $row['nomconcert'] . '">' . $row['descriptionconcert'] . '</p>';
+          echo '<p class="text-justify"><img style="max-width:150px;" class="img-fluid float-left mr-3 mb-3" src="./img/concerts/' . $row['imageconcert'] . '" alt="' . $row['nomconcert'] . '">' . $row['descriptionconcert'] . '</p>';
         }
         echo '<p class="text-justify">' . $row['presentationconcert'] . '</p>';
     echo '</div>';
@@ -66,4 +65,4 @@ catch (\Exception $e) {
 
 <?php include 'footer.php'; ?>
 
-<?php //} //else ?>
+<?php } //else ?>
